@@ -11,6 +11,12 @@
 
     <title>Hot&Cup {% block head_title %}{% endblock %}</title>
 
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/328aade986.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- Bootstrap CSS -->
     {% block corecss %}
     <link
@@ -50,13 +56,9 @@
     <h1>Welcome to Our Online Store</h1>
     {% endblock %}
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+    <main>{% block content %} {% endblock %}</main>
 
     <!-- Post-load JavaScript Section -->
-    {% block postloadjs %}
-    {% endblock %}
+    {% block postloadjs %} {% endblock %}
   </body>
 </html>

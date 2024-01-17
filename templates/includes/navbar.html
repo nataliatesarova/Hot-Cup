@@ -82,15 +82,31 @@
         </li>
       </ul>
 
-      <form class="d-flex" role="search">
+      <form class="d-flex" method="GET" action="">
         <input
           class="form-control me-2"
-          type="search"
+          type="text"
+          name="q"
           placeholder="Search"
           aria-label="Search"
         />
         <button class="btn btn-outline-secondary" type="submit">Search</button>
       </form>
+
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-2">
+        <!-- User Account Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            ><i class="fa-regular fa-user"></i>My Account</a
+          >
+        </li>
+        <!-- Shopping Bag Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            ><i class="fa-solid fa-bag-shopping"></i>Shopping Bag</a
+          >
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
