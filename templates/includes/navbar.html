@@ -111,9 +111,21 @@
         </li>
         <!-- Shopping Bag Link -->
         <li class="nav-item">
-          <a class="nav-link" href="#"
-            ><i class="fa-solid fa-bag-shopping"></i>&nbsp;Shopping Bag</a
+          <a class="nav-link" href="" class="nav-link {% if items_in_cart %}text-info {%else%} text-light{% endif %}" aria-label="Review your cart and order before making a purchase">
+            <i class="fa-solid fa-bag-shopping"></i>&nbsp;Shopping Bag</a
           >
+          {% if product_count > 0 %}
+              <span class="cart-counter text-muted">{{product_count}}</span>
+          {% endif %} 
+            <p class="my-0{% if cart_total %} {% endif %}">
+              <!-- Display the shopping bag total with two decimal places-->
+              {% if shopping_bag_total %}
+                  €{{ shopping_bag_total|floatformat:2 }}  
+              {% else %}
+              <!-- Display €0.00 when there are no items in the shopping bag -->
+              €0.00
+              {% endif %}
+          </p>
         </li>
       </ul>
     </div>
