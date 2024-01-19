@@ -7,5 +7,23 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     font-family:Arial, sans-serif;
-    color:bisque;
+    color:#D2691E;
+}
+
+.btn {
+    cursor: pointer;    
+    
+}
+
+/* Media Queries */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 75%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .btn {
+        font-size: 14px;
+    }
 }
