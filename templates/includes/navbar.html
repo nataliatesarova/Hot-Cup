@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Hot&Cup</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Hot&Cup</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -15,10 +15,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
+        </li> -->
 
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}">
+              All Products
+          </a>
+        </li>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
@@ -30,12 +36,14 @@
             Coffee
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">C</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Coffee Beans</a></li>
+            <li><a class="dropdown-item" href="#">Ground Coffee</a></li>
+            <li><a class="dropdown-item" href="#">Decaffeinated Coffee</a></li>
+            <li><a class="dropdown-item" href="#">Instant Coffee</a></li>
             <li>
               <hr class="dropdown-divider" />
             </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">All Coffee</a></li>
           </ul>
         </li>
 
@@ -50,12 +58,14 @@
             Hot Chocolate
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">H</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">White Chocolate</a></li>
+            <li><a class="dropdown-item" href="#">Dark Chocolate</a></li>
+            <li><a class="dropdown-item" href="#">Salted Caramel Chocolate</a></li>
+            <li><a class="dropdown-item" href="#">Vegan Chocolate</a></li>
             <li>
               <hr class="dropdown-divider" />
             </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">All Chocolate</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -69,16 +79,23 @@
             Tea
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">T</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">White Tea</a></li>
+            <li><a class="dropdown-item" href="#">Green Tea</a></li>
+            <li><a class="dropdown-item" href="#">Oolong Tea</a></li>
+            <li><a class="dropdown-item" href="#">Herbal Tea</a></li>
+            <li><a class="dropdown-item" href="#">Jasmine Tea</a></li>
+            <li><a class="dropdown-item" href="#">Chai Tea</a></li>
             <li>
               <hr class="dropdown-divider" />
             </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">All Tea</a></li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Sale</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Gifts</a>
         </li>
       </ul>
 
