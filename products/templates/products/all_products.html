@@ -4,19 +4,41 @@
 gir
 
 {% block page_header %}
-<div class="container header-container">
+<div class="container header-container default-background">
   <div class="row">
     <div class="col"></div>
+      <h1>Products</h1>
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            {{ }}
-        </div>
-    </div>
+<div class="col">
+  <div class="row mx-3 my-4">
+      {% for product in products %}
+      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+          <div class="card shadow">
+              {% if product.image %}
+              <img src="{{ product.image.url }}" class="card-img-top" alt="Product image for {{ product.name }}">
+              {% else %}
+              <img src="{% static 'images/default-image.jpg' %}" class="card-img-top" alt="Default image for {{ product.name }}">
+              {% endif %}
+              <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.description }}</p>
+                  <p class="card-text"><strong>Price: €{{ product.price }}</strong></p>
+                  {% if product.rating %}
+                  <p class="card-text text-success"><i class="fa-sharp fa-solid fa-star"></i> {{ product.rating }}</p>
+                  {% else %}
+                  <p class="card-text text-muted">No Rating</p>
+                  {% endif %}
+                  <a href="" class="btn btn-primary">View Product</a>
+              </div>
+          </div>
+      </div>
+      {% empty %}
+      <p class="text-center w-100 fs-6 mt-5">We couldn't find any matching products.</p>
+      {% endfor %}
+  </div>
 </div>
 {% endblock %}

@@ -2,6 +2,7 @@ html {
     height: 100%;
 }
 
+
 body {
     background: url('/media/background1.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -9,6 +10,22 @@ body {
     font-family:Arial, sans-serif;
     color:#D2691E;
 }
+
+/* Basic settings for all pages without specific background */
+/* .default-background { */
+    /* background: none;
+   
+} */
+
+.card {
+    height: 80%;
+}
+
+.card-img-top {
+    height: 50%; /* Pokud chcete, aby obrázek zabíral polovinu výšky karty */
+    object-fit: cover; /* Pro zachování poměru stran obrázku */
+}
+
 
 .btn {
     cursor: pointer;    
