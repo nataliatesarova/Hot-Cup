@@ -92,16 +92,20 @@
         />
         <button class="btn btn-outline-secondary" type="submit">Search</button>
       </form>
-
       <ul class="navbar-nav mb-2 mb-lg-0 ms-2">
         <!-- User Account Link -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-regular fa-user"></i>&nbsp;My Account
+            <i class="fa-regular fa-user"></i>&nbsp;
+            {% if request.user.is_authenticated %}
+              My Account
+            {% else %}
+              Login / Register
+            {% endif %}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
             {% if request.user.is_authenticated %}
-              <li><a class="dropdown-item" href="">My Account</a></li>
+              <li><a class="dropdown-item" href="">Profile</a></li>
               <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
               <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>

@@ -15,7 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
     # Filter products by category, price, and availability
     list_filter = ('category', 'price', 'in_stock')
-    # Sort products by category, subcategory, and brand
+    # Sort products by category
     ordering = ('category__name',)
 
 class CategoryAdmin(admin.ModelAdmin):
