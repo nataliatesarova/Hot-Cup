@@ -32,7 +32,7 @@ gir
                   {% else %}
                   <p class="card-text text-muted">No Rating</p>
                   {% endif %}
-                  <a href="" class="btn btn-primary">View Product</a>
+                  <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
               </div>
           </div>
       </div>

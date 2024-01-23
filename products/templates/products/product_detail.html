@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+<!-- extends the base.html template and loads the static files. -->
+{% load static %}
+gir
+
+{% block page_header %}
+<div class="container header-container default-background">
+  <div class="row">
+    <div class="col"></div>
+      <h1>Product Detail</h1>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card mb-3" style="max-width: 100%;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{ product.image_url }}" class="img-fluid rounded-start" alt="{{ product.name }}">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h2 class="card-title">{{ product.name }}</h2>
+            <h3 class="price">€{{ product.price }}</h3>
+            <div class="product-options mt-3">
+              <h6>Weight:</h6>
+              <select class="form-select mb-3">
+                <option value="50">50 grams</option>
+                <option value="100">100 grams</option>
+              </select>
+              <h6>Quantity:</h6>
+              <div class="input-group mb-3">
+                <button class="btn btn-outline-secondary" type="button">-</button>
+                <input type="text" class="form-control text-center" value="{{ product.quantity }}">
+                <button class="btn btn-outline-secondary" type="button">+</button>
+              </div>
+              <button class="btn btn-success w-100">ADD TO CART • €{{ product.price }}</button>
+            </div>
+            <p class="card-text mt-3">{{ product.description }}</p>
+            <p class="card-text"><strong>Ingredients:</strong> {{ product.ingredients }}</p>
+            <p class="card-text"><strong>Brewing Instructions:</strong> {{ product.brewing_instructions }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
