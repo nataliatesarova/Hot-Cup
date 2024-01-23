@@ -36,14 +36,14 @@
             Coffee
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Coffee Beans</a></li>
-            <li><a class="dropdown-item" href="#">Ground Coffee</a></li>
-            <li><a class="dropdown-item" href="#">Decaffeinated Coffee</a></li>
-            <li><a class="dropdown-item" href="#">Instant Coffee</a></li>
+            <li><a href="{% url 'products' %}?category=coffee_beans" class="dropdown-item">Coffee Beans</a></li>
+            <li><a href="{% url 'products' %}?category=ground_coffee" class="dropdown-item">Ground Coffee</a></li>
+            <li><a href="{% url 'products' %}?category=decaffeinated_coffee" class="dropdown-item">Decaffeinated Coffee</a></li>
+            <li><a href="{% url 'products' %}?category=instant_coffee" class="dropdown-item">Instant Coffee</a></li>
             <li>
               <hr class="dropdown-divider" />
             </li>
-            <li><a class="dropdown-item" href="#">All Coffee</a></li>
+            <li><a href="{% url 'products' %}?category=coffee_beans,ground_coffee,decaffeinated_coffee,instant_coffee" class="dropdown-item">All Coffee</a></li>
           </ul>
         </li>
 
@@ -58,14 +58,14 @@
             Hot Chocolate
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">White Chocolate</a></li>
-            <li><a class="dropdown-item" href="#">Dark Chocolate</a></li>
-            <li><a class="dropdown-item" href="#">Salted Caramel Chocolate</a></li>
-            <li><a class="dropdown-item" href="#">Vegan Chocolate</a></li>
+            <li><a href="{% url 'products' %}?category=white_chocolate" class="dropdown-item">White Chocolate</a></li>
+            <li><a href="{% url 'products' %}?category=dark_chocolate" class="dropdown-item">Dark Chocolate</a></li>
+            <li><a href="{% url 'products' %}?category=salted_caramel_chocolate" class="dropdown-item">Salted Caramel Chocolate</a></li>
+            <li><a href="{% url 'products' %}?category=vegan_chocolate" class="dropdown-item">Vegan Chocolate</a></li>
             <li>
               <hr class="dropdown-divider" />
             </li>
-            <li><a class="dropdown-item" href="#">All Chocolate</a></li>
+            <li><a href="{% url 'products' %}?category=white_chocolate,dark_chocolate,salted_caramel_chocolate,vegan_chocolate" class="dropdown-item">All Chocolate</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -79,16 +79,16 @@
             Tea
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">White Tea</a></li>
-            <li><a class="dropdown-item" href="#">Green Tea</a></li>
-            <li><a class="dropdown-item" href="#">Oolong Tea</a></li>
-            <li><a class="dropdown-item" href="#">Herbal Tea</a></li>
-            <li><a class="dropdown-item" href="#">Jasmine Tea</a></li>
-            <li><a class="dropdown-item" href="#">Chai Tea</a></li>
+            <li><a href="{% url 'products' %}?category=white_tea" class="dropdown-item">White Tea</a></li>
+            <li><a href="{% url 'products' %}?category=green_tea" class="dropdown-item">Green Tea</a></li>
+            <li><a href="{% url 'products' %}?category=oolong_tea" class="dropdown-item">Oolong Tea</a></li>
+            <li><a href="{% url 'products' %}?category=herbal_tea" class="dropdown-item">Herbal Tea</a></li>
+            <li><a href="{% url 'products' %}?category=jasmine_tea" class="dropdown-item">Jasmine Tea</a></li>
+            <li><a href="{% url 'products' %}?category=chai_tea" class="dropdown-item">Chai Tea</a></li>
             <li>
               <hr class="dropdown-divider" />
             </li>
-            <li><a class="dropdown-item" href="#">All Tea</a></li>
+            <li><a href="{% url 'products' %}?category=white_tea,green_tea,oolong_tea,herbal_tea,jasmine_tea,chai_tea" class="dropdown-item">All Tea</a></li>
           </ul>
         </li>
         <li class="nav-item">
