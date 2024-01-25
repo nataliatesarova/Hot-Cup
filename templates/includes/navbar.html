@@ -132,7 +132,7 @@
         </li>
         <!-- Shopping Bag Link -->
         <li class="nav-item">
-          <a class="nav-link" href="" class="nav-link {% if items_in_cart %}text-info {%else%} text-light{% endif %}" aria-label="Review your cart and order before making a purchase">
+          <a class="nav-link" href="{% url 'view_bag' %}" class="nav-link {% if items_in_cart %}text-info {%else%} text-light{% endif %}" aria-label="Review your cart and order before making a purchase">
             <i class="fa-solid fa-bag-shopping"></i>&nbsp;Shopping Bag</a
           >
           {% if product_count > 0 %}
