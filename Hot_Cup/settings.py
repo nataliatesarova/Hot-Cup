@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-*ex$_40ez4cz!se)jekajtob)$j#(^4i5e=nq+oo&)-)(jz8%4
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io']
+ALLOWED_HOSTS = ['8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io',
+                 'https://8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io']
 
 
 # Application definition
