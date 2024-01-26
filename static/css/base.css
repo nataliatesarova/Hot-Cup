@@ -32,6 +32,13 @@ body {
     
 }
 
+.btn-outline-black {
+    background: white;
+    /* Using !important to forcefully override link colors for <a> elements */
+    color: black !important; 
+    border: 1px solid black;
+}
+
 .btt-button {
     height: 42px;
     width: 42px;
@@ -44,6 +51,7 @@ body {
     cursor: pointer;
     text-decoration: none;   
 }
+
 
 /* Media Queries */
 @media (min-width: 1200px) {
