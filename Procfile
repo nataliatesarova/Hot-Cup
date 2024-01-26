@@ -1,0 +1,1 @@
+web: gunicorn Hot_Cup.wsgi:application

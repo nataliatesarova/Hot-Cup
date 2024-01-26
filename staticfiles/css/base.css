@@ -1,0 +1,71 @@
+html {
+    height: 100%;
+}
+
+
+body {
+    background: url('/media/background1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    font-family:Arial, sans-serif;
+    color:#D2691E;
+}
+
+/* Basic settings for all pages without specific background */
+/* .default-background { */
+    /* background: none;
+   
+} */
+
+.card {
+    height: 80%;
+}
+
+.card-img-top {
+    height: 50%; /* Pokud chcete, aby obrázek zabíral polovinu výšky karty */
+    object-fit: cover; /* Pro zachování poměru stran obrázku */
+}
+
+
+.btn {
+    cursor: pointer;    
+    
+}
+
+.btn-outline-black {
+    background: white;
+    /* Using !important to forcefully override link colors for <a> elements */
+    color: black !important; 
+    border: 1px solid black;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link{
+    cursor: pointer;
+    text-decoration: none;   
+}
+
+
+/* Media Queries */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 75%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .btn {
+        font-size: 14px;
+    }
+
+    .logo-font {
+        font-size:14px;
+    }
+}
