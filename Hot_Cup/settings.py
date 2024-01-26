@@ -29,7 +29,7 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = ['8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io',
-                 'https://8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io']
+                 'hot-cup-a72a7710ed7c.herokuapp.com']
 
 
 # Application definition
