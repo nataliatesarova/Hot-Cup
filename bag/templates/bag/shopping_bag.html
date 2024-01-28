@@ -51,7 +51,8 @@
                                         <p class="my-0">€{{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <p class="my-0">{{ item.quantity }}</p>
+                                        <form class="form update-form" method="POST" action=""></form>
+                                        {% csrf_token %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.product.price }}</p>
@@ -100,4 +101,9 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
