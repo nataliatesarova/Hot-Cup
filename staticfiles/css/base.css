@@ -16,14 +16,26 @@ body {
     /* background: none;
    
 } */
+ 
 
 .card {
-    height: 80%;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
 }
 
 .card-img-top {
-    height: 50%; /* Pokud chcete, aby obrázek zabíral polovinu výšky karty */
-    object-fit: cover; /* Pro zachování poměru stran obrázku */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    overflow: hidden;
 }
 
 
