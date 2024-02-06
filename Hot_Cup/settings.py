@@ -33,7 +33,8 @@ DEBUG = development
 if development:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1',
                      '127.0.0.1:8000',
-                     '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io']
+                     '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io',
+                     '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu108.gitpod.io']
 else:
     ALLOWED_HOSTS = ['hot-cup-a72a7710ed7c.herokuapp.com', '*']
 
