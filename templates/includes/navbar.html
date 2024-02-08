@@ -133,17 +133,13 @@
         <!-- Shopping Bag Link -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'view_bag' %}" class="nav-link {% if items_in_cart %}text-info {%else%} text-light{% endif %}" aria-label="Review your cart and order before making a purchase">
-            <i class="fa-solid fa-bag-shopping"></i>&nbsp;Shopping Bag</a>
-              <a class="{% if grand_total %}text-brown font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}"></a>
-                <div class="text-center">
-              <!-- Display the shopping bag total with two decimal places-->
-                {% if grand_total %}
-                    €{{ grand_total|floatformat:2 }}  
+            <i class="fa-solid fa-bag-shopping"></i>&nbsp;Shopping Bag {% if grand_total %}
+                    €{{ grand_total|floatformat:2 }}
                 {% else %}
               <!-- Display €0.00 when there are no items in the shopping bag -->
-                €0.00
+                / €0.00
                 {% endif %}
-                </div>
+          </a>
         </li>
       </ul>
     </div>
