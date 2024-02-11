@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, Review
+
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('review_number', 'user', 'product_id', 'timestamp')
+    search_fields = ('user__username', 'text')
+    list_filter = ('timestamp',)
+
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -26,4 +32,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Review, ReviewAdmin)
 

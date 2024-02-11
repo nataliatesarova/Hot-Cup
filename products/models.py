@@ -1,4 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+"""This is a custom model for Review entity. It will handle the name, the text, and the relation 
+to the product by product_id."""
+class Review(models.Model):
+    review_number = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product_id = models.CharField(max_length=512)
+    text = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
 
 
 class Category(models.Model):
