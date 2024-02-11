@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Category,Product,Review
+from .models import Category,Product,Review,Wishlist
 from django.contrib.auth.models import User
 
 
@@ -65,4 +65,19 @@ def add_review(request):
         user = get_object_or_404(User, username=request.user.username)
         Review.objects.create(user=user, product_id=product_id, text=text)
 
+    return redirect('product_detail', product_id=product_id)
+
+
+def add_to_wishlist(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+
+    # Check if the user is authenticated
+    if request.user.is_authenticated:
+        # Get or create the user's wishlist
+        wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+
+        # Add the product to the wishlist
+        wishlist.products.add(product)
+
+    # Redirect to the product detail page
     return redirect('product_detail', product_id=product_id)

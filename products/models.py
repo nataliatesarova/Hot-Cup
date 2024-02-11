@@ -11,6 +11,15 @@ class Review(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
 
+class Wishlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    products = models.ManyToManyField('Product', related_name='wishlists')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ['user', 'created_at']
+
+
 class Category(models.Model):
 
     class Meta:
