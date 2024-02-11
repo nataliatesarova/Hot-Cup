@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+<!-- extends the base.html template and loads the static files. -->
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 card py-4">
+    <h2>Frequently Asked Questions</h2>
+
+    {% for faq in faqs %}
+        <div class="accordion mt-3" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeading{{ faq.id }}">
+                    <button class="accordion-button bg-warning text-white" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faqCollapse{{ faq.id }}" aria-expanded="true"
+                            aria-controls="faqCollapse{{ faq.id }}">
+                        {{ faq.question }}
+                    </button>
+                </h2>
+                <div id="faqCollapse{{ faq.id }}" class="accordion-collapse collapse"
+                     aria-labelledby="faqHeading{{ faq.id }}" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {{ faq.answer|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
