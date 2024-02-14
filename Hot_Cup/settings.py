@@ -201,7 +201,7 @@ if 'USE_AWS' in os.environ:
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIAFILES_LOCATION = 'media'
 
-    # # Override static and media URLs in production
+    # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
@@ -225,3 +225,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FREE_DELIVERY_THRESHOLD = 30
 STANDARD_DELIVERY_PERCENTAGE = 10
+
+
+STRIPE_PUBLISHABLE_KEY ='pk_test_51OjPyoFlEekqUaJ8BMjHkf0bXlEQwUiiMYLTfAbtztdUiInAYtStXjCBaJaQQQZYyK8HARboSuSUtsX6M84YWrps00gbZm6N81'
+STRIPE_SECRET_KEY ='sk_test_51OjPyoFlEekqUaJ8f5lFGIp26ez9Nn6SdbaauOcsJjPxNtb2CJhrXvca7AV5M9DgU8BBMBhHi4ra1L7IdlG8xq3N00aiSXtJBV'
