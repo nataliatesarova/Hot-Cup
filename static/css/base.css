@@ -52,6 +52,15 @@ body {
     text-decoration: none;   
 }
 
+#social-links a {
+    text-decoration: none;
+}
+
+footer {
+    margin-bottom: 0;
+}
+
+
 
 /* Media Queries */
 @media (min-width: 1200px) {
