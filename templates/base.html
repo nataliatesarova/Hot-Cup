@@ -13,7 +13,8 @@
 
     <!-- Include jQuery script here -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/328aade986.js"
@@ -71,6 +72,55 @@
 
     <main>{% block content %} {% endblock %}</main>
 
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light">
+      <div class="container d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+          <div class="me-5 d-none d-lg-block">
+              <span>Stay connected with us on social networks:</span>
+          </div>
+          <div id="social-links">
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/profile.php?id=61554036458390" target="_blank" rel="noopener"
+                  class="me-4 text-reset" aria-label="Link to Facebook">
+                  <i class="fa-brands fa-square-facebook"></i>
+              </a>
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="me-4 text-reset" aria-label="Link to Instagram">
+                  <i class="fab fa-instagram"></i>
+              </a>
+          </div>
+      </div>
+      <div class="container  mt-5">
+          <div class="row mt-3 d-flex align-items-center">
+              <!-- Contact Information -->
+              <div class="col-md-4 col-lg-4 mx-auto mb-4 text-sm-center ">
+                  <h5 class="fw-bold mb-4">Contact:</h5>
+                  <p class="mb-0"><i class="fas fa-home me-3 text-black"></i>
+                      10 O'Conell Street,
+                      <br>
+                      Dublin, Ireland
+                  </p>
+                  <p class="mb-0"><i class="fas fa-phone me-3 text-black"></i>Phone: 085 849 6788</p>
+                  <p><i class="fas fa-envelope me-3 text-black"></i>Email: hotcup@gmail.com</p>
+              </div>
+              <div class="col-md-3 col-lg-2 d-flex justify-content-center ">
+                  <!-- Quick Links -->
+                  <ul class="list-unstyled custom-list">
+                      <li><a class="text-decoration-none text-start text-black" href="{% url 'home' %}">Home</a></li>
+                      <li><a class="text-decoration-none text-start text-black" href="{% url 'products' %}">All products</a></li>
+                      <li><a class="text-decoration-none text-start text-black" href="{% url 'faq' %}">FAQ</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <!-- Copyright -->
+      <div class="text-center copyright">
+          <p class="mb-0">&copy; Copyright School Project <a href="https://github.com/nataliatesarova/Hot-Cup" target="_blank"
+                  rel="noopener" class="me-4 text-reset" aria-label="Link to GitHub">
+                  <i class="fab fa-github"></i>
+              </a></p>
+      </div>
+  </footer>
     <!-- Post-load JavaScript Section -->
     {% block postloadjs %}
     <script type="text/javascript">
