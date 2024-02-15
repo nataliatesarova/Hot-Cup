@@ -5,9 +5,8 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="card shadow container py-4 px-2 my-4">
+<div class="card shadow container py-4 px-2 my-4 justify-content-center align-items-center">
 <h1>{% trans "Sign Up" %}</h1>
-
 <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
@@ -20,3 +19,11 @@
 </form>
 </div>
 {% endblock %}
+
+
+
+
+
+
+
+
