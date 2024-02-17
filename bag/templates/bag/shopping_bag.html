@@ -26,11 +26,12 @@
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Product Name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
 
@@ -45,8 +46,7 @@
 
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                        <p class="my-0 small text-muted">{{ item.product.name }} SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.product.price }}</p>
@@ -57,12 +57,23 @@
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.product.price }}</p>
                                     </td>
+                                    <td class="py-2">
+                                        <form class="form" action="{% url 'remove_from_bag' item.product.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <button class="btn" type="submit">
+                                               <span class="icon text-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                            </button>
+
+                                        </form>
+                                    </td>
                                 </tr>
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Bag Total: €{{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
+                                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
                                     <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_delta > 0 %}
                                         <p class="mb-1 text-danger">
@@ -73,12 +84,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <button id="purchase" class="btn btn-success rounded-0">
+                                    <a href="{% url 'checkout' %}" class="btn btn-success rounded-0">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-check"></i>
                                         </span>
-                                    </button>
+                                    </a>
+
                                     <a href="{% url 'products' %}" class="btn btn-secondary rounded-0">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>

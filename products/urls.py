@@ -6,4 +6,6 @@ urlpatterns = [
     path('<int:product_id>/', views.ProductDetail, name='product_detail'),
     path('add_review/', views.add_review, name='add_review'),
     path('add-to-wishlist/<int:product_id>/', views.add_to_wishlist, name='add_to_wishlist'),
+    path('config/', views.stripe_config, name='stripe_config'), 
+    path('create-checkout-session/', views.create_checkout_session),
 ]

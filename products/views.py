@@ -2,8 +2,12 @@ from django.shortcuts import render, redirect, reverse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
 from .models import Category,Product,Review,Wishlist
 from django.contrib.auth.models import User
+import stripe
+from django.conf import settings
+from django.http import Http404, JsonResponse
 
 
 
@@ -81,3 +85,52 @@ def add_to_wishlist(request, product_id):
 
     # Redirect to the product detail page
     return redirect('product_detail', product_id=product_id)
+
+@csrf_exempt
+def stripe_config(request):
+    if request.method == 'GET':
+        stripe_config = {'publicKey': settings.STRIPE_PUBLISHABLE_KEY}
+        return JsonResponse(stripe_config, safe=False)
+
+
+@csrf_exempt
+def create_checkout_session(request):
+    if request.method == 'GET':
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        bag_items = []
+        total = 0
+        product_count = 0
+        bag = request.session.get('bag', {})
+
+        for item_id, quantity in bag.items():
+            product = get_object_or_404(Product, pk=item_id)
+            total += quantity * product.price
+            product_count += quantity
+            bag_items.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+            })
+
+        if total < settings.FREE_DELIVERY_THRESHOLD:
+            delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+        else:
+            delivery = 0
+
+        grand_total = int((delivery + total) * 100)
+
+        try:
+
+            intent = stripe.PaymentIntent.create(
+                amount=grand_total,
+                currency='eur',
+                automatic_payment_methods={
+                    'enabled': True,
+                },
+            )
+
+            return JsonResponse({
+                'clientSecret': intent['client_secret']
+            })
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
