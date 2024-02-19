@@ -90,3 +90,61 @@ The project applied Agile Methodology on GitHub for planning and execution. User
 Additionally, 5 Epics were initiated and expanded into ? User Stories. Each of these stories was also assigned story points based on their complexity. The specifics of each epic, along with their corresponding user stories, can be located within the project's kanban board
 [here](https://github.com/users/nataliatesarova/projects/17/views/1). -->
 
+<!-- ## Epics and user stories
+
+The following Epic and user stories were completed. The MoSCoW prioritization was used to categorize the user story tasks into Must Have, Should Have, Could Have, and Won't Have. Must Haves are critical, Should Haves are important, Could Haves are desirable, and Won't Haves are excluded for now. This categorization helps focus on crucial tasks first, ensuring project success while allowing flexibility for less critical items.
+
+### Epic 1:
+
+### Epic 2:
+
+### Epic 3:
+
+### Epic 4:
+
+### Epic 5:
+
+## Future features
+
+# Testing
+
+## Validator
+
+HTML:
+![W3C validator]()
+
+CSS:
+![Jigsaw validator]()
+
+Code Institute Python Linter:
+![Python Linter]()
+
+JShint validator: was used for validation to ensure no JavaScript errors.
+![JShint validator]()
+
+## Testing of user stories -->
+
+<!-- # Bugs -->
+
+# Technologies
+## Languages
+
+- HTML
+- CSS
+- JavaScript
+- Python
+
+## Frameworks and Tools
+
+- Django: Python framework used in the project's development.
+- Bootstrap: Front-end CSS framework for design consistency.
+- PostgreSQL
+- Balsamiq: Tool used for wireframe creation.
+- LucidChart: Platform for designing the database schema.
+- Font Awesome: Source for icons.
+- Chrome Dev Tools: Used for development and responsive testing.
+- Git: Version control through Gitpod terminal for commits and pushes to GitHub.
+- GitHub: Repository for storing the project's code.
+- Heroku: Platform for deploying the application.
+- AWS S3: Used to store static and media files.
+- Stripe: Used to handle payments.
