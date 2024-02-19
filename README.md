@@ -55,3 +55,38 @@ The checkout process is streamlined for efficiency, with clear steps and secure 
 The FAQ section on Hot&Cup is designed to address common customer inquiries and provide helpful information about product storage, origins, return policies, and shipping times.
 
 ### My Wishlist
+
+
+
+## Design
+
+### Wireframe mock-ups
+
+[Balsamiq](https://balsamiq.com/) was used to design the wireframes for my website.
+![Home Page Wireframe]()
+![Recipe Page Wireframe]()
+
+### Database Schema
+![Database Schema Diagram]()
+The database schemas were designed using [Lucid App](https://lucid.app/). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. 
+
+<!-- #### Main Color Scheme
+
+Navigation bar grey: 
+
+Main background: 
+
+Button: 
+
+Footer background:
+
+Login card: -->
+
+<!-- ## UX
+
+## Agile Development
+The project applied Agile Methodology on GitHub for planning and execution. User Stories were established as GitHub issues clearly outlining their purposes.
+
+Additionally, 5 Epics were initiated and expanded into ? User Stories. Each of these stories was also assigned story points based on their complexity. The specifics of each epic, along with their corresponding user stories, can be located within the project's kanban board
+[here](https://github.com/users/nataliatesarova/projects/17/views/1). -->
+
