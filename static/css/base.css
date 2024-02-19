@@ -52,7 +52,7 @@ body {
     text-decoration: none;   
 }
 
-#social-links a {
+a {
     text-decoration: none;
 }
 
@@ -76,5 +76,12 @@ footer {
 
     .logo-font {
         font-size:14px;
+    }
+
+    #mc_embed_signup .mc-field-group {
+        width: 100%;
+        display: grid;
+        align-content: stretch;
+        justify-content: start;    
     }
 }
