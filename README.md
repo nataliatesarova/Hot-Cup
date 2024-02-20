@@ -168,7 +168,7 @@ From a marketing perspective, the website now features a section for newsletters
 Additionally, a Facebook page has been established to further enhance our digital footprint and engage with our audience on social media platforms.
 
 Facebook business page [Facebook](https://www.facebook.com/profile.php?id=61556575922935)
-![Facebook business page](assets/Facebook_business_page.png)
+![Facebook business page](assets/Facebook.png)
 
 Mailchimp
 ![Mailchimp]()
