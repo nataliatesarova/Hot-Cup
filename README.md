@@ -148,3 +148,36 @@ JShint validator: was used for validation to ensure no JavaScript errors.
 - Heroku: Platform for deploying the application.
 - AWS S3: Used to store static and media files.
 - Stripe: Used to handle payments.
+
+## Search Engine Optimization SEO and Marketing
+
+### Business Model
+
+Hot&Cup adopts a B2C e-commerce model focused on providing a premium selection of teas, coffees, and chocolates to consumers seeking quality and convenience. Targeting enthusiasts of these products, the site offers an easy-to-navigate interface for a seamless shopping experience. The goal is to attract customers desiring variety, competitive pricing, and the simplicity of having their favorite items delivered to their homes.
+
+### SEO
+
+Sitemap and robots.txt files have been added to the site's root to help with SEO.
+
+A sitemap, crucial for website navigation, was developed with the assistance of xml-sitemaps based on the live version of the site, and has been positioned at the top directory of the project. Furthermore, a robots.txt document has been instituted at the project's highest level to direct search engine bots regarding which website URLs are permissible for access.
+
+### Marketing
+
+From a marketing perspective, the website now features a section for newsletters, aimed at boosting user interaction and advancing the online store's visibility through strategic email marketing campaigns and a robust social media presence.
+
+Additionally, a Facebook page has been established to further enhance our digital footprint and engage with our audience on social media platforms.
+
+Facebook business page [Facebook](https://www.facebook.com/profile.php?id=61556575922935)
+![Facebook business page](assets/Facebook_business_page.png)
+
+Mailchimp
+![Mailchimp]()
+
+<!-- # Deployment
+
+Live Deployment: Find the application deployed on [Heroku](https://hot-cup-a72a7710ed7c.herokuapp.com/). -->
+
+
+<!-- # Credits and Acknowledgments
+
+I would like to thank my mentor Rory Sheridan and all the tutors, teachers and student colleagues for help and advice on the project. -->
