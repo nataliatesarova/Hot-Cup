@@ -49,9 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'cloudinary_storage',
     'django.contrib.staticfiles',
-    # 'cloudinary',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -60,7 +58,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'storages',
-    # 'profiles',
+    'profiles',
     'checkout',
 ]
 
