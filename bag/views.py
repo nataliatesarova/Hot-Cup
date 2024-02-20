@@ -10,9 +10,13 @@ def ViewShoppingBag(request):
     return render(request, 'bag/shopping_bag.html')
 
 
+def checkout(request):
+    return render(request, 'bag/checkout.html')
+
+
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
-
+    print(item_id)
     product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -21,7 +25,7 @@ def add_to_bag(request, item_id):
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
         messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
-        
+
     else:
         bag[item_id] = quantity
         messages.success(request, f'Added {product.name} to your bag')
@@ -58,11 +62,8 @@ def remove_from_bag(request, item_id):
         messages.success(request, f'Removed {product.name} from your bag')
 
         request.session['bag'] = bag
-        return HttpResponse(status=200)
+        return redirect(reverse('view_bag'))
 
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
-
-def checkout(request): 
-    return render(request, 'bag/checkout.html')

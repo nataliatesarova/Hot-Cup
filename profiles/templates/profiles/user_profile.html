@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container default-background">
+    <div class="row">
+        <div class="col"></div>
+        <h1>Edit Profile</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card mb-3">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <h2>Profile Information</h2>
+
+                <div class="mb-3">
+                    <h4><strong>Username: </strong>{{ user_profile }}</h4>
+                </div>
+
+                <div class="mb-3">
+                    <p>Phone Number: {{ user_profile.default_phone_number }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <p>Street Address 1: {{ user_profile.default_street_address1 }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <p>Street Address 2: {{ user_profile.default_street_address2 }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <p>Town or City: {{ user_profile.default_town_or_city }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <p>County: {{ user_profile.default_county }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <p>Postcode: {{ user_profile.default_postcode }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <p>Country: {{ user_profile.default_country.name }}</p>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
