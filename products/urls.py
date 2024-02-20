@@ -8,4 +8,6 @@ urlpatterns = [
     path('add-to-wishlist/<int:product_id>/', views.add_to_wishlist, name='add_to_wishlist'),
     path('config/', views.stripe_config, name='stripe_config'), 
     path('create-checkout-session/', views.create_checkout_session, name='create_checkout_session'),
+    path('wishlist/', views.get_wishlist, name='wishlist'),
+    path('remove-from-wishlist/<int:item_id>/<int:product_id>/', views.remove_from_wishlist, name='remove_from_wishlist'),
 ]

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container default-background">
+    <div class="row">
+        <div class="col"></div>
+        <h1>Wishlist</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card mb-3">
+        <div class="card-body">
+            <h2>Wishlist</h2>
+            {% if wishlist %}
+            <ul>
+            {% for wl in wishlist %}
+                <li><a href="{% url 'product_detail' wl.id %}" >{{wl}}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                Sorry, you didn't add anything to your wishlist.
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

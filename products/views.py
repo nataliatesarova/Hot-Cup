@@ -50,15 +50,20 @@ def ProductDetail(request, product_id):
 
     try:
         reviews = Review.objects.filter(product_id=product_id)
-        print(reviews)
     except Review.DoesNotExist:
         raise Http404("Given query not found....")
+
+    try:
+        wishlist = Wishlist.objects.get(products=product, user=request.user)
+    except:
+        wishlist = None
 
     context = {
         'product': product,
         'reviews': reviews,
+        'wishlist': wishlist
     }
-    
+
     return render(request, 'products/product_detail.html', context)
 
 def add_review(request):
@@ -68,6 +73,34 @@ def add_review(request):
 
         user = get_object_or_404(User, username=request.user.username)
         Review.objects.create(user=user, product_id=product_id, text=text)
+
+    return redirect('product_detail', product_id=product_id)
+
+def get_wishlist(request):
+    try:
+        wishlist = Wishlist.objects.get(user=request.user).products.all()
+
+    except Wishlist.DoesNotExist:
+        return render(request, 'products/wishlist.html', {})
+
+    context = {
+        'wishlist': wishlist
+    }
+
+    return render(request, 'products/wishlist.html', context)
+
+
+def remove_from_wishlist(request, item_id, product_id):
+    try:
+        wishlist_item = Wishlist.objects.get(id=item_id)
+        products = wishlist_item.products.all()
+        for wl in products:
+            if wl.id == product_id:
+                wishlist_item.products.remove(wl)
+        if len(Wishlist.objects.get(id=item_id).products.all()) == 0:
+            wishlist_item.delete()
+    except Wishlist.DoesNotExist:
+        return HttpResponse(f"{item_id} not found in wishlist.")
 
     return redirect('product_detail', product_id=product_id)
 
