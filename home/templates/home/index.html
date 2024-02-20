@@ -2,10 +2,6 @@
 <!-- extends the base.html template and loads the static files. -->
 {% load static %}
 
-<!-- {% block head_title %}
-Hot&Cup | Home
-{% endblock %} -->
-
 {% block page_header %}
 <div class="container header-container">
   <div class="row">
@@ -15,42 +11,17 @@ Hot&Cup | Home
 {% endblock %} {% block content %}
 <div class="container">
   <div class="row bg-light my-5 p-3 rounded">
-    <!-- <div class="col">
-      <div class="row">
-        <div class="col-sm d-flex flex-wrap">
-          <div class="card bg-light mb-3"></div>
-        </div>
-      </div>
-    </div> -->
-    <div class="row mt-4">
-      <div class="col bg-info text-white rounded p-3">
+    <div class="col">
+      <div class="bg-info text-white rounded p-3">
         <h2>Welcome to Hot Cup</h2>
-        <p>
-          Where we invite you to explore our carefully chosen selection of
-          exceptional beverages. Our dedication to quality and flavor shines
-          through in every sip and bite.
-        </p>
-        <h3>Teas from Across the Globe</h2>
-        <p>
-          Indulge in the world of tea, sourced from the finest tea gardens
-          worldwide. From soothing herbal infusions to robust black teas, our
-          collection is tailored to satisfy even the most discerning palates.
-        </p>
-        <h3>A World of Aromatic Coffees</h2>
-        <p>
-          Discover the rich and aromatic universe of coffee with our
-          thoughtfully selected beans. Whether you prefer single-origin
-          treasures or expertly crafted blends, our coffee offerings cater to
-          every coffee lover's preference.
-        </p>
-        <h3>Chocolates That Delight</h2>
-        <p>
-          For those with a sweet tooth, our premium chocolate selections will
-          transport you to a world of cocoa-rich delight. From velvety milk
-          chocolates to decadent dark varieties, we have the perfect treat to
-          satisfy your cravings.
-        </p>
-        <div class="col-12 col-md-6 rounded m-2 mx-auto text-center">
+        <p>Where we invite you to explore our carefully chosen selection of exceptional beverages. Our dedication to quality and flavor shines through in every sip and bite.</p>
+        <h3>Teas from Across the Globe</h3>
+        <p>Indulge in the world of tea, sourced from the finest tea gardens worldwide. From soothing herbal infusions to robust black teas, our collection is tailored to satisfy even the most discerning palates.</p>
+        <h3>A World of Aromatic Coffees</h3>
+        <p>Discover the rich and aromatic universe of coffee with our thoughtfully selected beans. Whether you prefer single-origin treasures or expertly crafted blends, our coffee offerings cater to every coffee lover's preference.</p>
+        <h3>Chocolates That Delight</h3>
+        <p>For those with a sweet tooth, our premium chocolate selections will transport you to a world of cocoa-rich delight. From velvety milk chocolates to decadent dark varieties, we have the perfect treat to satisfy your cravings.</p>
+        <div class="text-center mt-4">
           <a class="btn btn-secondary btn-lg" href="{% url 'products' %}" role="button">Explore Our Collection</a>
         </div>
       </div>
