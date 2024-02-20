@@ -15,6 +15,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li> -->
+
+
         <li class="nav-item">
           <a class="nav-link" href="{% url 'products' %}">
               All Products
@@ -41,6 +46,7 @@
             <li><a href="{% url 'products' %}?category=coffee_beans,ground_coffee,decaffeinated_coffee,instant_coffee" class="dropdown-item">All Coffee</a></li>
           </ul>
         </li>
+
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
@@ -89,6 +95,7 @@
           <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
         </li>
       </ul>
+
       <form class="d-flex" method="GET" action="{% url 'products' %}">
         <input
           class="form-control me-2"
@@ -104,15 +111,18 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-regular fa-user"></i>&nbsp;
+            <span class="hider-on-md">
             {% if request.user.is_authenticated %}
               My Account
             {% else %}
               Login / Register
             {% endif %}
+            </span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
             {% if request.user.is_authenticated %}
               <li><a class="dropdown-item" href="{% url 'user_profile' %}">Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'wishlist' %}">Wishlist</a></li>
               <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
               <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
@@ -123,18 +133,20 @@
         <!-- Shopping Bag Link -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'view_bag' %}" class="nav-link {% if items_in_cart %}text-info {%else%} text-light{% endif %}" aria-label="Review your cart and order before making a purchase">
-            <i class="fa-solid fa-bag-shopping"></i>&nbsp;Shopping Bag {% if grand_total %}
+            <i class="fa-solid fa-bag-shopping"></i>&nbsp;<span class="hider-on-md">Shopping Bag {% if grand_total %}
                     €{{ grand_total|floatformat:2 }}
                 {% else %}
               <!-- Display €0.00 when there are no items in the shopping bag -->
                 / €0.00
                 {% endif %}
+          </span>
           </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
 <!--Free Delivery banner-->
 <div id="delivery-banner" class="row text-center">
   <div class="col bg-black text-white">

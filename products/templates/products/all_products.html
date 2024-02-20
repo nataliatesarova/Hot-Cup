@@ -27,12 +27,6 @@ gir
               <div class="card-body">
                   <h5 class="card-title">{{ product.name }} / <strong> €{{ product.price }}</strong></h5>
                   <p class="card-text">{{ product.description|slice:":130"|default:'' }}{% if product.description|length > 130 %} ...{% endif %}</p>
-
-                  {% if product.rating %}
-                  <p class="card-text text-success"><i class="fa-sharp fa-solid fa-star"></i> Rating: {{ product.rating }}</p>
-                  {% else %}
-                  <p class="card-text text-muted">No Rating</p>
-                  {% endif %}
                   <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
               </div>
           </div>
