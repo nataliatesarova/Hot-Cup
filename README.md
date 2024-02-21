@@ -57,16 +57,27 @@ The FAQ section on Hot&Cup is designed to address common customer inquiries and 
 When logged in the user has the option to add and remove products on a wishlist for future purchases.
 
 ## Design
+<!-- Colour Scheme
 
-### Wireframe mock-ups
+The website has a simple, elegant look that feels cozy and stylish at the same time. I use a mix of down-to-earth and soft, calming colors to make our visitors feel welcome and at ease. I keep the colors consistent throughout the site:
 
-[Balsamiq](https://balsamiq.com/) was used to design the wireframes for my website.
-![Home Page Wireframe]()
-![Recipe Page Wireframe]()
+--primary-green: #a5d9a5; A soothing pastel green that brings a touch of nature and tranquility.
+--rich-brown: #63453d; A deep, warm brown that provides depth and solidity.
+--cream: #f2e8c5; A light, creamy hue that offers a soft background for our content.
+--sky-blue: #c5d7f2; A light blue that evokes the openness and calm of the sky.
+--accent-pink: #f0bc00; A vibrant pink that adds a playful pop of color.
+--neutral-grey: #938c8c; A muted grey for balanced typography and subtle accents.
+Secondary colors used sparingly across the website to enhance the visual experience include:
 
-### Database Schema
-![Database Schema Diagram]()
-The database schemas were designed using [Lucid App](https://lucid.app/). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. 
+#cdc8c8: A dusty rose for highlighting important elements.
+#333: A classic dark grey for strong contrast in texts.
+#ff7a7a: A soft red for calls to action and interactive elements.
+#0d0d0d: A solid black used mainly in text for readability.
+#888 and #97908e: Shades of grey for secondary text and borders.
+#eeebe3 and #8f8f8f: Variations of light grey used in backgrounds and to delineate areas.
+#dc3545: A bold red to draw attention and provide visual cues.
+#aab7c4 and #c7dbd2: Cool blues and greens for a refreshing touch.
+The color scheme was chosen to reflect our brand's values and to ensure a visually engaging and comfortable browsing experience. -->
 
 <!-- #### Main Color Scheme
 
@@ -79,6 +90,20 @@ Button:
 Footer background:
 
 Login card: -->
+
+### Wireframe mock-ups
+
+[Balsamiq](https://balsamiq.com/) was used to design the wireframes for my website.
+![Home Page Wireframe]()
+![Recipe Page Wireframe]()
+![Recipe Detail Wireframe]()
+
+
+### Database Schema
+![Database Schema Diagram]()
+The database schemas were designed using [Lucid App](https://lucid.app/). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. 
+
+
 
 <!-- ## UX
 
@@ -151,7 +176,7 @@ JShint validator: was used for validation to ensure no JavaScript errors.
 
 ### Business Model
 
-Hot&Cup adopts a B2C e-commerce model focused on providing a premium selection of teas, coffees, and chocolates to consumers seeking quality and convenience. Targeting enthusiasts of these products, the site offers an easy-to-navigate interface for a seamless shopping experience. The goal is to attract customers desiring variety, competitive pricing, and the simplicity of having their favorite items delivered to their homes.
+Hot&Cup embraces a consumer-centric online retail approach, delivering a range of quality teas, coffees, and hot chocolate. Catering to connoisseurs of these beverages, our platform ensures a smooth and intuitive shopping journey. The goal is to attract customers desiring variety, value for money, and the convenience of having their favorite items delivered to their homes.
 
 ### SEO
 
@@ -161,7 +186,7 @@ A sitemap, crucial for website navigation, was developed with the assistance of 
 
 ### Marketing
 
-From a marketing perspective, the website now features a section for newsletters, aimed at boosting user interaction and advancing the online store's visibility through strategic email marketing campaigns and a robust social media presence.
+From a marketing perspective, the website features a section for newsletter subscription, aimed at boosting user interaction and advancing the online store's visibility through strategic email marketing campaigns and a robust social media presence.
 
 Additionally, a Facebook page has been established to further enhance our digital footprint and engage with our audience on social media platforms.
 
