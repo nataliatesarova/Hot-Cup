@@ -131,11 +131,35 @@ body {
     overflow-y: auto;
 }
 
+/* .me-5 {
+    margin-right: 19rem!important;
+} */
+
+/* Mailchimp */
+.newsletter-container{
+    background: #D3D3D3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+
+}
+
+/* .social-text {
+    text-align: left; /* Aligns the text to the left */
+    /* padding-left: 0; /* Removes padding on the left if any */
+   
+
+
 /* Media Queries */
 @media (min-width: 1200px) {
     .container {
       max-width: 75%;
     }
+    
+   
+     
 }
 
 @media screen and (max-width: 767px) {
@@ -146,6 +170,16 @@ body {
     .logo-font {
         font-size:14px;
     }
+
+    .mc-field-group{
+        display: grid;
+        align-content: stretch;
+        justify-content: start;
+    }
+
+    .indicates-required {
+        display:none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -155,6 +189,6 @@ body {
 }
 
 
-.hider-on-md {
+/* .hider-on-md {
         display: none !important;
-    }
+    } */
