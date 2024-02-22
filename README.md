@@ -331,6 +331,6 @@ Log in to GitHub or create an account. Go to https://github.com/nataliatesarova/
 
 Visit https://github.com/nataliatesarova/Hot-Cup. Click the green "Code" button and choose "Clone by HTTPS". Copy the provided URL. In your terminal, navigate to your desired directory. Type 'git clone [copied URL]' and press enter to clone the repository locally.
 
-<!-- # Credits and Acknowledgments
+## Credits and Acknowledgments
 
-I would like to thank my mentor Rory Sheridan and all the tutors, teachers and student colleagues for help and advice on the project. -->
+I would like to thank my mentor Rory Sheridan and all the tutors, teachers and student colleagues for help and advice on the project.
