@@ -57,48 +57,20 @@ The FAQ section on Hot&Cup is designed to address common customer inquiries and 
 When logged in the user has the option to add and remove products on a wishlist for future purchases.
 
 ## Design
-<!-- Colour Scheme
+
+### Colour Scheme
 
 The website has a simple, elegant look that feels cozy and stylish at the same time. I use a mix of down-to-earth and soft, calming colors to make our visitors feel welcome and at ease. I keep the colors consistent throughout the site:
 
-moje barvy
-.bg-light: Navbar bacground light gray color
-.bg-info: background blue color 
-.btn-secondary: button grey color
-#D3D3D3: Footer background grey color
-#fff: text white color
-.bg-black: banner black color
+- Navbar background: light gray .bg-light
+- Banner: black .bg-black
+- Central panel homepage: blue .bg-info
+- Buttons: grey .btn-secondary
+- Footer background: grey #D3D3D3
+- Principle text: white #fff, orange-brown #D2691E, grey #0000008c
 
-tohle neni moje barva
---primary-green: #a5d9a5; A soothing pastel green that brings a touch of nature and tranquility.
---rich-brown: #63453d; A deep, warm brown that provides depth and solidity.
---cream: #f2e8c5; A light, creamy hue that offers a soft background for our content.
---sky-blue: #c5d7f2; A light blue that evokes the openness and calm of the sky.
---accent-pink: #f0bc00; A vibrant pink that adds a playful pop of color.
---neutral-grey: #938c8c; A muted grey for balanced typography and subtle accents.
-Secondary colors used sparingly across the website to enhance the visual experience include:
+The chosen color palette aims to create an engaging and visually pleasing browsing environment.
 
-#cdc8c8: A dusty rose for highlighting important elements.
-#333: A classic dark grey for strong contrast in texts.
-#ff7a7a: A soft red for calls to action and interactive elements.
-#0d0d0d: A solid black used mainly in text for readability.
-#888 and #97908e: Shades of grey for secondary text and borders.
-#eeebe3 and #8f8f8f: Variations of light grey used in backgrounds and to delineate areas.
-#dc3545: A bold red to draw attention and provide visual cues.
-#aab7c4 and #c7dbd2: Cool blues and greens for a refreshing touch.
-The color scheme was chosen to reflect our brand's values and to ensure a visually engaging and comfortable browsing experience. -->
-
-<!-- #### Main Color Scheme
-
-Navigation bar grey: 
-
-Main background: 
-
-Button: 
-
-Footer background:
-
-Login card: -->
 
 ### Wireframe mock-ups
 
