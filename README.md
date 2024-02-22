@@ -212,10 +212,124 @@ Facebook business page [Facebook](https://www.facebook.com/profile.php?id=615565
 Mailchimp
 ![Mailchimp]()
 
-<!-- # Deployment
+## Deployment
 
-Live Deployment: Find the application deployed on [Heroku](https://hot-cup-a72a7710ed7c.herokuapp.com/). -->
+Live Deployment: Find the application deployed on [Heroku](https://hot-cup-a72a7710ed7c.herokuapp.com/).
 
+To deploy your application successfully on Heroku, you must first update the requirements.txt file. This file contains a list of all the packages necessary for your application to function.
+
+To generate this list, execute the command pip3 freeze > requirements.txt. This creates or updates your requirements.txt with the current packages and versions.
+
+After updating the requirements, commit the changes and push them to your GitHub repository.
+
+Important: Before pushing any code to GitHub, ensure that all sensitive credentials are stored in an env.py file and that this file is listed in your .gitignore. This prevents Git from tracking the file and stops it from being uploaded to GitHub, keeping your credentials secure.
+
+### For setting up Stripe:
+
+- Sign into your Stripe account.
+- Head to the developers' section found at the top right.
+- In the API keys area, take note of the PUBLIC_KEY and SECRET_KEY.
+- Enter these keys into your env.py file.
+- Go to the Webhooks section via the menu and select 'Add endpoint'.
+- Provide your application's deployment link, which should resemble: https://your_website.herokuapp.com/checkout/wh/.
+- Select the relevant events you want the webhook to listen for and confirm by adding the endpoint.
+- After your app is live, conduct a test purchase to verify webhook functionality. Check the webhook's responses on the webhooks page.
+
+### For AWS setup:
+
+- Log into your AWS account.
+- To make a new S3 bucket, pick the AWS region nearest to you and give the bucket a unique name.
+- In the Object Ownership settings, choose "ACLs enabled" for object access.
+- In the Block Public Access settings, turn off "block all public access" since your app needs to reach the bucket contents.
+- Confirm these choices and create your bucket.
+- Then, adjust the bucket's settings:
+- Bucket Properties: Access the bucket's properties, find the website hosting section, and hit edit. Activate static website hosting, choose "Host a static website", and put "index.html" and "error.html" in the respective fields, then save.
+- Bucket Permissions: Click the "Permissions" tab, scroll to "CORS configuration", and click edit. Insert the needed code snippet and save your changes.
+![AWS](assets/AWS.png)
+
+To set up your S3 bucket's policy and permissions, follow these steps:
+
+- In the bucket policy section, click 'Edit'.
+Note your bucket's ARN, for example, arn:aws:s3:::test-bucket.
+
+To create a new policy:
+- Open the policy generator tool.
+- Choose 'S3 Bucket Policy' as the policy type.
+- Set 'Effect' to 'Allow'.
+- Enter * for Principal to apply the policy to all users.
+- Select 'Amazon S3' as the service.
+- Choose 'GetObject' as the action.
+- Input your bucket's ARN.
+- Add the statement and then generate the policy.
+- Copy the new policy.
+- Applying the policy:
+
+Paste the policy into the bucket policy editor on AWS.
+Append "/*" to your bucket's ARN in the policy to enable access to all contents.
+Save the changes.
+For ACL settings:
+
+Go to the Access control list (ACL) section and click 'Edit'.
+Enable 'List' for 'Everyone' to allow public access and acknowledge the warning.
+If you can't edit, ensure 'ACLs enabled' is selected under 'Object Ownership' in your bucket settings.
+
+For setting up IAM and permissions in AWS:
+
+- Creating an IAM User Group
+- Go to the IAM dashboard in AWS.
+- Select "User Groups" from the left menu.
+- Click "Create user group," name it, and then create it. You'll add users and set permissions later.
+- Setting Up a Permissions Policy
+- Navigate to "Policies" in the left menu and choose "Create policy."
+- Use the "Import managed policy" option to search for "AmazonS3FullAccess." Import it.
+- In the policy editor, switch to the "JSON" tab.
+- Find the "Resource" section in the JSON. Replace the placeholder ARN ("") with your bucket's ARN. Include your bucket's ARN again, this time appending "/*" to allow access to all objects within the bucket.
+This process creates a policy giving full access to the specified S3 bucket and prepares a user group for managing permissions effectively.
+![IAM](assets/IAM.png)
+
+- On the next page, provide a name and description for the policy and then click 'Create Policy'.
+- To link the policy to a user group, go to 'User Groups' from the sidebar menu.
+- Click the name of the group you've previously set up and head over to the 'Permissions' tab.
+- Choose 'Attach Policy', find the policy you just made, select it, and confirm by clicking 'Attach Policy'.
+- For creating a new user, navigate to 'Users' in the sidebar and select 'Add User'.
+- Type in the desired username.
+- Mark the checkboxes for 'Programmatic access' and 'AWS Management Console access' and proceed to the next step.
+- Add the new user to the group by clicking 'Add user to group', check the group you formed before, and finalize by clicking 'Create User'.
+- Make sure to note down the 'Access key ID' and 'Secret access key' shown, as they will be required for S3 bucket connectivity.
+- To keep a record of these credentials, click 'Download .csv'.
+
+To get your project up and running on Heroku, follow these steps:
+
+### Deployment on Heroku
+
+- Sign up for a Heroku account if you haven't already.
+- Once signed in, start a new app by pressing the 'Create app' button.
+- Choose a distinctive name for your app, pick a server region, and then click 'Create App'.
+- On your app's dashboard, go to the 'Settings' section and look for 'Config Vars'.
+- Enter any sensitive information like credentials and API keys in the 'Config Vars' section to keep them secure. This project specifically requires certain credentials to be stored here.
+
+  1. Django's secret key
+  2. Database Credentials
+  3. AWS access key 
+  3. AWS secret key
+  4. Email host password.
+  5. Stripe public key
+  6. stripe secret key
+  7. Stripe wh secret
+
+- Navigate to 'Buildpacks' in your app's settings. Buildpacks prepare your environment by installing additional dependencies not listed in your requirements.txt. For this project, select the Python buildpack.
+- Switch to the 'Deploy' tab at the top of the page.
+- Choose GitHub as the deployment method. Confirm the connection to GitHub, then locate and connect to your repository.
+- In the 'Automatic Deploys' section, you have the option to enable automatic updates. This will automatically rebuild your app every time you push changes to the connected GitHub repository. Activate this if desired.
+- To deploy, click the 'Deploy Branch' button. Heroku will then build your app. Once the build process is complete, you'll receive a notification indicating a successful deployment, along with a button to view your live application.
+
+### Forking the Repository
+
+Log in to GitHub or create an account. Go to https://github.com/nataliatesarova/Hot-Cup. Click "Fork" at the top-right of the repository. A copy will be created in your own repository.
+
+### Cloning Repository
+
+Visit https://github.com/nataliatesarova/Hot-Cup. Click the green "Code" button and choose "Clone by HTTPS". Copy the provided URL. In your terminal, navigate to your desired directory. Type 'git clone [copied URL]' and press enter to clone the repository locally.
 
 <!-- # Credits and Acknowledgments
 
