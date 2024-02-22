@@ -14,7 +14,7 @@ gir
 
 {% block content %}
 <div class="col">
-  <div class="row mx-3 my-2">
+  <div class="row mx-4 my-3">
       {% for product in products %}
       <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
           <div class="card shadow" >
@@ -27,7 +27,7 @@ gir
               <div class="card-body">
                   <h5 class="card-title">{{ product.name }} / <strong> €{{ product.price }}</strong></h5>
                   <p class="card-text">{{ product.description|slice:":130"|default:'' }}{% if product.description|length > 130 %} ...{% endif %}</p>
-                  <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                  <a href="{% url 'product_detail' product.id %}" class="btn btn-secondary">View Product</a>
               </div>
           </div>
       </div>
