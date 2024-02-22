@@ -61,6 +61,15 @@ When logged in the user has the option to add and remove products on a wishlist 
 
 The website has a simple, elegant look that feels cozy and stylish at the same time. I use a mix of down-to-earth and soft, calming colors to make our visitors feel welcome and at ease. I keep the colors consistent throughout the site:
 
+moje barvy
+.bg-light: Navbar bacground light gray color
+.bg-info: background blue color 
+.btn-secondary: button grey color
+#D3D3D3: Footer background grey color
+#fff: text white color
+.bg-black: banner black color
+
+tohle neni moje barva
 --primary-green: #a5d9a5; A soothing pastel green that brings a touch of nature and tranquility.
 --rich-brown: #63453d; A deep, warm brown that provides depth and solidity.
 --cream: #f2e8c5; A light, creamy hue that offers a soft background for our content.
@@ -137,13 +146,12 @@ Discount Discovery: Users can quickly locate deals to save on purchases.
 Best-seller Insights: Shoppers see what's trending to follow popular choices.
 Personalized Browsing: Product suggestions evolve from user activity for tailored options.
 Custom Alerts: Notifications for new stock or items cater to user interests.
-Cart Customization: Flexibility in quantity selection for each cart item.
-Save for Later: Option to hold items in the cart for future purchase.
-Delivery Estimates: Visible anticipated item arrival times for better planning.
+Cart Customization: Option to modify quantity for each cart item and hold items in the cart for future purchase.
+Delivery Estimates: Visible expected item delivery times for better planning.
 Promo Code Application: Users can redeem codes for additional savings.
 Order History: A full view of past transactions aids in budgeting and repurchases.
 Sales Analytics: Admins access data on sales and customer habits for strategic adjustments.
-Inventory Alerts: Automated notifications for low stock to prevent shortages. -->
+Inventory Alerts: Automated notifications for low stock to prevent shortages.
 
 # Testing
 
