@@ -230,9 +230,9 @@ To generate this list, execute the command pip3 freeze > requirements.txt. This 
 
 After updating the requirements, commit the changes and push them to your GitHub repository.
 
-Important: Before pushing any code to GitHub, ensure that all sensitive credentials are stored in an env.py file and that this file is listed in your .gitignore. This prevents Git from tracking the file and stops it from being uploaded to GitHub, keeping your credentials secure.
+Before pushing any code to GitHub, ensure that all sensitive credentials are stored in an env.py file and that this file is listed in your .gitignore. This prevents Git from tracking the file and stops it from being uploaded to GitHub, keeping your credentials secure.
 
-### For setting up Stripe:
+### Stripe:
 
 - Sign into your Stripe account.
 - Head to the developers' section found at the top right.
@@ -243,7 +243,7 @@ Important: Before pushing any code to GitHub, ensure that all sensitive credenti
 - Select the relevant events you want the webhook to listen for and confirm by adding the endpoint.
 - After your app is live, conduct a test purchase to verify webhook functionality. Check the webhook's responses on the webhooks page.
 
-### For AWS setup:
+### AWS:
 
 - Log into your AWS account.
 - To make a new S3 bucket, pick the AWS region nearest to you and give the bucket a unique name.
@@ -281,7 +281,7 @@ Go to the Access control list (ACL) section and click 'Edit'.
 Enable 'List' for 'Everyone' to allow public access and acknowledge the warning.
 If you can't edit, ensure 'ACLs enabled' is selected under 'Object Ownership' in your bucket settings.
 
-For setting up IAM and permissions in AWS:
+Setting up IAM and permissions in AWS:
 
 - Creating an IAM User Group
 - Go to the IAM dashboard in AWS.
@@ -310,7 +310,7 @@ To get your project up and running on Heroku, follow these steps:
 
 ### Deployment on Heroku
 
-- Sign up for a Heroku account if you haven't already.
+- Sign up for a Heroku account.
 - Once signed in, start a new app by pressing the 'Create app' button.
 - Choose a distinctive name for your app, pick a server region, and then click 'Create App'.
 - On your app's dashboard, go to the 'Settings' section and look for 'Config Vars'.
