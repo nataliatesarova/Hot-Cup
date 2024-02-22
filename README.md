@@ -94,9 +94,10 @@ Login card: -->
 ### Wireframe mock-ups
 
 [Balsamiq](https://balsamiq.com/) was used to design the wireframes for my website.
-![Home Page Wireframe]()
-![Recipe Page Wireframe]()
-![Recipe Detail Wireframe]()
+![Home Page Wireframe](assets/Balsamiq1.png)
+![Recipe Page Wireframe](assets/Balsamiq2.png)
+![Recipe Detail Wireframe](assets/Balsamiq3.png)
+![Recipe Detail, Add to Wishlist, Review, Wireframe](assets/Balsamiq4.png)
 
 
 ### Database Schema
