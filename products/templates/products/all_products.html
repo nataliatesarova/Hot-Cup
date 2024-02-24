@@ -14,12 +14,14 @@ gir
 
 {% block content %}
 <div class="col">
-  <div class="row mx-4 my-3">
+  <div class="row mx-4 my-5">
       {% for product in products %}
-      <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 my-2">
           <div class="card shadow" >
               {% if product.image %}
               <img src="{{ product.image.url }}" class="card-img-top" alt="Product image for {{ product.name }}">
+              {% elif product.image_url %}
+              <img src="{{ product.image_url }}" class="card-img-top" alt="Product image for {{ product.name }}">
               {% else %}
               <img src="{% static 'images/default_image.jpg' %}" class="card-img-top" alt="Default image for {{ product.name }}">
               {% endif %}
