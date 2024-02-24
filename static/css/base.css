@@ -11,18 +11,14 @@ body {
     color:#D2691E;
 }
 
-/* Basic settings for all pages without specific background */
-/* .default-background { */
-    /* background: none;
-   
-} */
- 
 
 .card {
     display: flex;
     flex-direction: column;
-    height: 100%; 
+    height: 100%;
 }
+
+
 
 .card-img-top {
     width: 100%;
@@ -131,9 +127,10 @@ body {
     overflow-y: auto;
 }
 
-/* .me-5 {
-    margin-right: 19rem!important;
-} */
+/* Wishlist */
+a {
+    text-decoration: none;
+}
 
 /* Mailchimp */
 .newsletter-container{
@@ -146,10 +143,6 @@ body {
 
 }
 
-/* .social-text {
-    text-align: left; /* Aligns the text to the left */
-    /* padding-left: 0; /* Removes padding on the left if any */
-   
 
 
 /* Media Queries */
@@ -189,6 +182,3 @@ body {
 }
 
 
-/* .hider-on-md {
-        display: none !important;
-    } */
