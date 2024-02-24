@@ -222,7 +222,7 @@ STRIPE_PUBLISHABLE_KEY =os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY =os.getenv('STRIPE_SECRET_KEY', '')
 
 
-if 'DEVELOPMENT' in os.environ:
+if development:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'hotandcup@example.com'
 else:
