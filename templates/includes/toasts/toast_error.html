@@ -11,3 +11,13 @@
         {{ message }}        
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+      $('.toast').toast({
+        autohide: true,
+        delay: 3000  // Disappear after 3 seconds
+      });
+      $('.toast').toast('show');
+    });
+</script>
