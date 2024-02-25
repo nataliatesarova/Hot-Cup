@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=coffee_beans</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=ground_coffee</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=decaffeinated_coffee</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=instant_coffee</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=coffee_beans,ground_coffee,decaffeinated_coffee,instant_coffee</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=white_chocolate</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=dark_chocolate</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=salted_caramel_chocolate</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=vegan_chocolate</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=white_chocolate,dark_chocolate,salted_caramel_chocolate,vegan_chocolate</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=white_tea</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=green_tea</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=oolong_tea</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=herbal_tea</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=jasmine_tea</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=chai_tea</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/?category=white_tea,green_tea,oolong_tea,herbal_tea,jasmine_tea,chai_tea</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/faq</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/accounts/login/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/bag/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/16/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/4/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/13/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/9/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/5/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/1/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/6/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/12/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/14/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/15/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/10/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/21/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/22/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/products/23/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hot-cup-a72a7710ed7c.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2024-02-25T20:02:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

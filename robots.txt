@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://hot-cup-a72a7710ed7c.herokuapp.com/sitemap.xml
