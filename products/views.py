@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 import stripe
 from django.conf import settings
 from django.http import Http404, JsonResponse
-
+from decimal import Decimal
 
 
 def AllProducts(request):
