@@ -101,7 +101,7 @@ The chosen color palette aims to create an engaging and visually pleasing browsi
 
 ### Database Schema
 ![Database Schema Diagram](assets/databasescheme.jpg)
-The database schemas were designed using [](). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. 
+The database schemas were designed using [DbVisualizer](https://www.dbvis.com/). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. 
 
 
 ## UX
@@ -330,7 +330,7 @@ Fixing toasts in the application
 - Bootstrap: Front-end CSS framework for design consistency.
 - PostgreSQL
 - Balsamiq: Tool used for wireframe creation.
-- : Platform for designing the database schema.
+- DbVisualizer: Platform for designing the database schema.
 - Font Awesome: Source for icons.
 - Chrome Dev Tools: Used for development and responsive testing.
 - Git: Version control through Gitpod terminal for commits and pushes to GitHub.
