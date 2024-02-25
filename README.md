@@ -104,31 +104,60 @@ The chosen color palette aims to create an engaging and visually pleasing browsi
 The database schemas were designed using [Lucid App](https://lucid.app/). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. 
 
 
+## UX
+Our e-commerce community, Hot&Cup, is dedicated to providing a seamless shopping experience for tea, coffee, and hot chocolate enthusiasts. Our goal is to offer a user-friendly platform where our customers can easily find and purchase their favorite beverages. With a clean and inviting design, we ensure our customers can navigate through our product offerings with ease, making their shopping experience enjoyable and straightforward.
 
-<!-- ## UX
+We are aimed at: 
+- individuals who appreciate the finer details of teas, coffees, and hot chocolates and are looking to purchase these products online.
+- customers who are interested in exploring a variety of flavors and brands from the comfort of their home.
+- shoppers looking for a convenient and secure way to buy their favorite hot beverages.
+
+We aim for: 
+- providing a diverse range of high-quality tea, coffee, and hot chocolate products for our customers to choose from.
+- offering a platform that not only sells beverages but also educates and informs customers about the different products available.
+- creating an engaging online space where customers can read and share reviews, and have their questions answered through a comprehensive FAQ section.
 
 ## Agile Development
-The project applied Agile Methodology on GitHub for planning and execution. User Stories were established as GitHub issues clearly outlining their purposes.
+The project adopts the Agile Methodology using GitHub for meticulous planning and efficient execution. User Stories are clearly defined as GitHub issues, delineating their objectives and expected outcomes.
 
-Additionally, 5 Epics were initiated and expanded into ? User Stories. Each of these stories was also assigned story points based on their complexity. The specifics of each epic, along with their corresponding user stories, can be located within the project's kanban board
-[here](https://github.com/users/nataliatesarova/projects/17/views/1). -->
+Furthermore, the project is structured into 5 Epics which are broken down into detailed User Stories. Each story is allocated story points reflecting its complexity. The specifics of each epic and the related user stories are systematically organized within the project's [kanban board](https://github.com/users/nataliatesarova/projects/17) 
 
-<!-- ## Epics and user stories
+## Epics and User Stories
 
-The following Epic and user stories were completed. The MoSCoW prioritization was used to categorize the user story tasks into Must Have, Should Have, Could Have, and Won't Have. Must Haves are critical, Should Haves are important, Could Haves are desirable, and Won't Haves are excluded for now. This categorization helps focus on crucial tasks first, ensuring project success while allowing flexibility for less critical items.
+The project consists of the following Epics and User Stories, employing the MoSCoW method to prioritize tasks.
 
-### Epic 1:
+### EPIC 1: Viewing items to shop
 
-### Epic 2:
-
-### Epic 3:
-
-### Epic 4:
-
-### Epic 5:
+1. As a user I can visit the home page so that I can identify the purpose of the website ‘Must Have’
+2. As a user I can view the products so that I can choose what to buy ‘Must Have’
+3. As a user I can search and filter products by category so that I can focus on items that interest me ‘Should Have’
+4. As a user I can post and read reviews so that I can provide and receive valuable insights and opinions on products ‘Could Have’
+5. As a user I can access detailed information about each product so that I can make an informed purchase decision ‘Must Have’
+6. As a user I can access a list of frequently asked questions so that I can find quick answers to common queries without needing to contact support ‘Could Have’
 
 
-<!-- <!-- ## Future features  -->
+### EPIC 2: User profile
+
+1. As a user I can register for an account so that I can shop on the website ‘Must Have’
+2. As a user I can log in to my account so that I can make new purchases ‘Must Have’
+3. As a user I can create a new password so that I can access my account if I forget my current password ‘Must Have’
+4. As a user I can have the option to subscribe to a newsletter so that I can receive the latest updates on products ‘Could Have’
+
+### EPIC3: Shopping cart
+
+1. As a user I can add items to a wishlist so that I can keep track of my interests for possible future purchase ‘Could Have’
+2. As a user I can place products in my shopping cart so that I can review and buy several items together ‘Must Have’
+3. As a user I can delete items from my shopping cart so that I can revise my final purchase choices ‘Should Have’
+
+### EPIC 4: Payment
+
+1. As a user I can make secure payments with Stripe so that my transactions are safe and reliable ‘Must Have’
+2. As a user I can choose different payment methods such as digital wallets for my convenience ‘Should Have’
+
+### EPIC 5: Admin
+
+1. As admin (superuser) I can utilize the administrative panel so that I have the ability to create, update, manage, and delete products and user profiles for effective site management ‘Must Have’
+
 
 ## Future features
 
