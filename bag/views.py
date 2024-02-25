@@ -4,10 +4,6 @@ from django.contrib import messages
 from products.models import Product
 
 
-# def ViewShoppingBag(request):
-#     """ A view that renders the shopping bag contents page """
-
-#     return render(request, 'bag/shopping_bag.html')
 def ViewShoppingBag(request):
     """ A view that renders the shopping bag contents page, including subtotal for each item. """
     bag = request.session.get('bag', {})
