@@ -43,19 +43,18 @@
                                           {% else %}
                                             <img style="width: 6rem; height: 6rem" class="rounded" src="{% static 'images/default_image.jpg' %}">
                                           {% endif %}
-
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0 small text-muted">{{ item.product.name }} SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">€{{ item.product.price }}</p>
+                                        <p class="my-0">€{{ item.product.price|floatformat:2 }}</p>
                                     </td>
                                     <td class="py-3 w-25">
                                         <p class="my-0">{{ item.quantity }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">€{{ item.product.price }}</p>
+                                        <p class="my-0">€{{ item.subtotal|floatformat:2 }}</p>
                                     </td>
                                     <td class="py-2">
                                         <form class="form" action="{% url 'remove_from_bag' item.product.id %}" method="POST">
@@ -65,7 +64,6 @@
                                                     <i class="fas fa-trash"></i>
                                                 </span>
                                             </button>
-
                                         </form>
                                     </td>
                                 </tr>

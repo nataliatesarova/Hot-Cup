@@ -4,11 +4,35 @@ from django.contrib import messages
 from products.models import Product
 
 
+# def ViewShoppingBag(request):
+#     """ A view that renders the shopping bag contents page """
+
+#     return render(request, 'bag/shopping_bag.html')
 def ViewShoppingBag(request):
-    """ A view that renders the shopping bag contents page """
+    """ A view that renders the shopping bag contents page, including subtotal for each item. """
+    bag = request.session.get('bag', {})
+    bag_items = []
+    total = 0
+    product_count = 0
+    for item_id, quantity in bag.items():
+        product = Product.objects.get(id=item_id)
+        subtotal = product.price * quantity
+        total += subtotal
+        product_count += quantity
+        bag_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+            'subtotal': subtotal,
+        })
 
-    return render(request, 'bag/shopping_bag.html')
+    context = {
+        'bag_items': bag_items,
+        'total': total,
+        'product_count': product_count,
+    }
 
+    return render(request, 'bag/shopping_bag.html', context)
 
 def checkout(request):
     return render(request, 'bag/checkout.html')
