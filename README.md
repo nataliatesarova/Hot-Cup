@@ -7,17 +7,17 @@ The target audience for Hot&Cup encompasses anyone with a fondness for coffee, t
 ## Features
 ### Navbar
 The Navbar prominently displays the site name Hot&Cup on the far-left, doubling as a link to the homepage. At the left there are links for 'All Products', 'Coffee', 'Hot Chocolate', and 'Tea'. The link for frequently asked questions (FAQ) and search tool is placed centrally.  Situated on the right are accessible links to 'Register', 'Login', "Wishlist' (if logged in), and the 'Shopping Bag'. Additionally, a banner is featured, informing users of the €30 minimum purchase necessary to qualify for free delivery. The Navbar is fully Responsive and switches to hamburger menu on small screens.
-![navbar]()
+![navbar](assets/navbar.png)
 
 
 ### Homepage
 The homepage incorporates a background image of tea cups with a central plate with welcome message and product introduction.
-![homepage]()
+![homepage](assets/homepage.png)
 
 
 ### Footer
 The footer contains links to stores Facebook and Instagram page. There is also links for 'Homepage', 'All products' and 'FAQ'. The contact details are also provided. A feature for newsletter subscription utilizing Mailchimp is available.
-![footer]()
+![footer](assets/footer.png)
 
 
 ### Register
@@ -100,8 +100,8 @@ The chosen color palette aims to create an engaging and visually pleasing browsi
 
 
 ### Database Schema
-![Database Schema Diagram]()
-The database schemas were designed using [Lucid App](https://lucid.app/). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. 
+![Database Schema Diagram](assets/databasescheme.jpg)
+The database schemas were designed using [](). These schemas were pivotal in planning the database models and defining their respective fields. They also facilitated visualizing the relationships between the models and their interactions. 
 
 
 ## UX
@@ -293,7 +293,28 @@ Test Cases: Verify that admins can create, update, and delete products and user 
 Test Result: All tests passed.
 
 
-<!-- # Bugs -->
+# Bugs
+
+Fixing cards in main page
+- Adjusting margins and paddings for different displays
+- Organizing components in the cards
+
+Adding containers to each accounting page
+- Components in each accounting page allocated in a container with card tag
+
+Clearing welcome to website title in every page
+
+Adding permissions for logged in users
+- Finding critical flows and added authentication condition for completing that process
+
+Creating new flexible payment flow
+
+Responsive navbar component
+- Changing the behaviour of profile and shopping bag list in the navbar
+
+Adding the support for using image_url attribute for loading images
+
+Fixing toasts in the application
 
 # Technologies
 ## Languages
@@ -309,7 +330,7 @@ Test Result: All tests passed.
 - Bootstrap: Front-end CSS framework for design consistency.
 - PostgreSQL
 - Balsamiq: Tool used for wireframe creation.
-- LucidChart: Platform for designing the database schema.
+- : Platform for designing the database schema.
 - Font Awesome: Source for icons.
 - Chrome Dev Tools: Used for development and responsive testing.
 - Git: Version control through Gitpod terminal for commits and pushes to GitHub.
@@ -336,11 +357,11 @@ From a marketing perspective, the website features a section for newsletter subs
 
 Additionally, a Facebook page has been established to further enhance our digital footprint and engage with our audience on social media platforms.
 
-Facebook business page [Facebook](https://www.facebook.com/profile.php?id=61556575922935)
+[Facebook business page](https://www.facebook.com/profile.php?id=61556575922935)
 ![Facebook business page](assets/Facebook.png)
 
 Mailchimp
-![Mailchimp]()
+![Mailchimp](assets/Mailchimp.png)
 
 ## Deployment
 
