@@ -188,7 +188,110 @@ Code Institute Python Linter:
 JShint validator: was used for validation to ensure no JavaScript errors.
 ![JShint validator]()
 
-## Testing of user stories -->
+
+## Testing of user stories
+
+### EPIC 1: Viewing Items to Shop
+- Homepage Visit (Must Have)
+
+Acceptance Criteria: The homepage clearly displays the website's purpose.
+Test Cases: Verify that the homepage loads successfully and communicates the site's intent to new visitors.
+Test Result: All tests passed.
+
+- Product Viewing (Must Have)
+
+Acceptance Criteria: Products are viewable to all users.
+Test Cases: Confirm that the product listing page displays all available products.
+Test Result: All tests passed.
+
+- Product Search and Filtering (Should Have)
+
+Acceptance Criteria: Users can search for product names and categories.
+Test Cases: Test the search functionality with various keywords and verify that results are accurate. 
+Test Result: All tests passed.
+
+- Posting and Reading Reviews (Could Have)
+
+Acceptance Criteria: Registered and logged in users can post reviews on products and read existing reviews.
+Test Cases: Validate that reviews can be submitted and are visible on product detail page. 
+Test Result: All tests passed.
+
+- Detailed Product Information (Must Have)
+
+Acceptance Criteria: Detailed information about each product is available and accessible.
+Test Cases: Check that product detail pages display all necessary information, such as price, description, and specifications.
+Test Result: All tests passed.
+
+- Access to FAQs (Could Have)
+
+Acceptance Criteria: A list of FAQs is available to users.
+Test Cases: Ensure that the FAQ section is present and answers common questions effectively.
+Test Result: All tests passed.
+
+### EPIC 2: User Profile
+- Account Registration (Must Have)
+
+Acceptance Criteria: Users can register for an account to shop on the website.
+Test Cases: Test the registration email process and verify that a new account is created successfully.
+Test Result: All tests passed.
+
+- Account Login (Must Have)
+
+Acceptance Criteria: Users can log in to their accounts.
+Test Cases: Confirm login functionality with valid credentials and test for appropriate error messages with invalid attempts.
+Test Result: All tests passed.
+
+- Password Reset (Must Have)
+
+Acceptance Criteria: Users can reset their passwords if forgotten.
+Test Cases: Verify that the password reset process is functional and secure.
+Test Result: All tests passed.
+
+- Newsletter Subscription (Could Have)
+
+Acceptance Criteria: Users have the option to subscribe to a newsletter.
+Test Cases: Check that the newsletter subscription option is available and that the subscription process works correctly.
+Test Result: All tests passed.
+
+### EPIC 3: Shopping Cart
+- Wishlist Functionality (Could Have)
+
+Acceptance Criteria: Users can add items to a wishlist for future purchase.
+Test Cases: Validate the ability to add items to the wishlist and view the wishlist contents.
+Test Result: All tests passed.
+
+- Adding to Shopping Cart (Must Have)
+
+Acceptance Criteria: Users can place products in the shopping cart.
+Test Cases: Test adding various products to the shopping cart and review the cart contents.
+Test Result: All tests passed.
+
+- Deleting from Shopping Cart (Should Have)
+
+Acceptance Criteria: Users can delete items from their shopping cart.
+Test Cases: Confirm that items can be removed from the cart and that the cart updates correctly.
+Test Result: All tests passed.
+
+### EPIC 4: Payment
+- Secure Payments with Stripe (Must Have)
+
+Acceptance Criteria: Users can make secure payments using Stripe.
+Test Cases: Test the Stripe payment integration to ensure transactions are processed securely.
+Test Result: All tests passed.
+
+- Diverse Payment Methods (Should Have)
+
+Acceptance Criteria: Users can choose from various payment methods, including digital wallets.
+Test Cases: Check the functionality of different payment options and verify that transactions are successful.
+Test Result: All tests passed.
+
+### EPIC 5: Admin
+- Admin Panel Usage (Must Have)
+
+Acceptance Criteria: Admins can manage the site through the administrative panel.
+Test Cases: Verify that admins can create, update, and delete products and user profiles. Test all admin functionalities for expected results.
+Test Result: All tests passed.
+
 
 <!-- # Bugs -->
 
