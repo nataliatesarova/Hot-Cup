@@ -179,18 +179,17 @@ Inventory Alerts: Automated notifications for low stock to prevent shortages.
 
 ## Validator
 
-
-HTML validator: used to ensure no HTML errors.
-![Nu Html Checker](assets/htmlvalidator.png)
-
-Jigsaw validator: used to ensure no CSS errors.
-![Jigsaw validator](assets/jigsaw_validator.png)
-
 Code Institute Python Linter: used to ensure no Python code errors.
 ![Python Linter](assets/pythonlinter.png)
 
 JShint validator: used to ensure no JavaScript errors.
 ![JShint validator](assets/jshint.png)
+
+Jigsaw validator: used to ensure no CSS errors.
+![Jigsaw validator](assets/jigsaw_validator.png)
+
+HTML validator: used to ensure no HTML errors.
+![Nu Html Checker](assets/htmlvalidator.png)
 
 
 ## Testing of user stories
