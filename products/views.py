@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
-from .models import Category,Product,Review,Wishlist
+from .models import Category, Product, Review, Wishlist
 from django.contrib.auth.models import User
 import stripe
 from django.conf import settings
@@ -17,7 +17,6 @@ def AllProducts(request):
     products = Product.objects.all()
     query = None
     categories = None
-
 
     if request.GET:
         if 'category' in request.GET:
@@ -39,7 +38,7 @@ def AllProducts(request):
         'search_term': query,
         'current_categories': categories,
     }
-    
+
     return render(request, 'products/all_products.html', context)
 
 
@@ -66,6 +65,7 @@ def ProductDetail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
+
 def add_review(request):
     if request.method == 'POST':
         product_id = request.POST.get('product_id')
@@ -75,6 +75,7 @@ def add_review(request):
         Review.objects.create(user=user, product_id=product_id, text=text)
 
     return redirect('product_detail', product_id=product_id)
+
 
 def get_wishlist(request):
     try:
@@ -118,6 +119,7 @@ def add_to_wishlist(request, product_id):
 
     # Redirect to the product detail page
     return redirect('product_detail', product_id=product_id)
+
 
 @csrf_exempt
 def stripe_config(request):

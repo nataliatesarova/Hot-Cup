@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import UserProfile
 from django_countries import countries
 
+
 def UserProfileView(request):
     user_profile = UserProfile.objects.get(user=request.user)
     c = list(countries)
