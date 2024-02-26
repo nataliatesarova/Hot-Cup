@@ -22,17 +22,17 @@ The footer contains links to stores Facebook and Instagram page. There is also l
 
 ### Register
 The registration page on Hot&Cup facilitates a smooth sign-up process for new customers. It features a clean layout where users can input their email, a chosen username and password. The page requires users to enter their email and password twice for verification purposes to prevent typing errors.
-![register]()
+![register](assets/register.png)
 
 
 ### Profile
 The user is invited to enter user name, phone number, street address, town or city, county, postcode and country
-![profile]()
+![profile](assets/profile.png)
 
 
 ### Login
 The login page offers existing users a secure and straightforward method to access their accounts. With an emphasis on user experience, the login process is optimized for efficiency, ensuring customers can swiftly proceed to browsing and purchasing.
-![login]()
+![login](assets/login.png)
 
 
 ### Products Page
@@ -41,7 +41,7 @@ The Products Page of Hot&Cup serves as a visual showcase of the various beverage
 Below the name and price there is a brief description of the product. This snippet of text is designed to entice the user by providing just enough information to pique their interest without overwhelming them with details.
 
 A prominent 'View Product' button is placed beneath each description, inviting users to learn more about the item.
-![product page]()
+![product page](assets/product_page.png)
 
 
 ### Product Detail and Reviews
@@ -52,27 +52,27 @@ Customers can select the product weight from a dropdown menu and also adjust the
 When logged in there is also the option to post and read reviews. These reviews help customers make informed decisions and contribute to the platform's trustworthiness.
 
 The page's design ensures a smooth and efficient shopping experience, aligned with Hot&Cup's brand and user experience standards.
-![product detail page]()
+![product detail page](assets/product_detail_page.png)
 
 
 ### Shopping Cart
 The Shopping Bag page presents a clear summary of the customer's selected items for purchase. It displays product details such as an image, name, price, quantity, subtotal, delivery charges and grand total. An option to remove items is readily accessible. It also informs customers how much more they need to spend to qualify for free delivery, encouraging additional purchases. If not logged in the user can complete checkout and is instead presented with'Login to Checkout','Sign up'and 'Keep Shopping' buttons. A registered logged in user is presented with a 'Secure Checkout' button to complete purchase. A 'Keep Shopping' option allows users to continue browsing.
-![unregistered/logged out shopping cart]()
-![registered and logged in shopping cart]()
+![unregistered/logged out shopping cart](assets/shopping_bag.png)
+![registered and logged in shopping cart](assets/shopping_bag_unregister.png)
 
 
 ### My Wishlist
 When logged in the user has the option to add and remove products on a wishlist for future purchases.
-![wishlist]()
+![wishlist](assets/wishlist.png)
 
 ### Checkout
 The checkout process is streamlined for efficiency, with clear steps and secure payment options. Integration with Stripe allows for a choice of payment methods, ensuring a smooth transaction process.
-![payment page]()
+![payment page](assets/checkout.png)
 
 
 ### FAQ Page
 The FAQ section on Hot&Cup is designed to address common customer inquiries and provide helpful information about product storage, origins, return policies, and shipping times.
-![FAQ]()
+![FAQ](assets/faq.png)
 
 ## Design
 
@@ -176,17 +176,18 @@ Inventory Alerts: Automated notifications for low stock to prevent shortages.
 
 ## Validator
 
-HTML:
-![W3C validator]()
 
-CSS:
-![Jigsaw validator]()
+HTML validator: was used for validation to ensure no HTML errors.
+![Nu Html Checker](assets/htmlvalidator.png)
 
-Code Institute Python Linter:
-![Python Linter]()
+Jigsaw validator: was used for validation to ensure no CSS errors.
+![Jigsaw validator](assets/jigsaw_validator.png)
+
+Code Institute Python Linter: was used for validation to ensure no Python code errors.
+![Python Linter](assets/pythonlinter.png)
 
 JShint validator: was used for validation to ensure no JavaScript errors.
-![JShint validator]()
+![JShint validator](assets/jshint.png)
 
 
 ## Testing of user stories
