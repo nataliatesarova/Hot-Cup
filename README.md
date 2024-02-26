@@ -67,7 +67,7 @@ When logged in the user has the option to add and remove products on a wishlist 
 
 ### Checkout
 The checkout process is streamlined for efficiency, with clear steps and secure payment options. Integration with Stripe allows for a choice of payment methods, ensuring a smooth transaction process.
-![payment page](assets/checkout.png)
+![payment page](assets/stripe.png)
 
 
 ### FAQ Page
@@ -88,6 +88,9 @@ The website has a simple, elegant look that feels cozy and stylish at the same t
 - Principle text: white #fff, orange-brown #D2691E, grey #0000008c
 
 The chosen color palette aims to create an engaging and visually pleasing browsing environment.
+
+### Font
+Arial, sans-serif
 
 
 ### Wireframe mock-ups
@@ -177,16 +180,16 @@ Inventory Alerts: Automated notifications for low stock to prevent shortages.
 ## Validator
 
 
-HTML validator: was used for validation to ensure no HTML errors.
+HTML validator: used to ensure no HTML errors.
 ![Nu Html Checker](assets/htmlvalidator.png)
 
-Jigsaw validator: was used for validation to ensure no CSS errors.
+Jigsaw validator: used to ensure no CSS errors.
 ![Jigsaw validator](assets/jigsaw_validator.png)
 
-Code Institute Python Linter: was used for validation to ensure no Python code errors.
+Code Institute Python Linter: used to ensure no Python code errors.
 ![Python Linter](assets/pythonlinter.png)
 
-JShint validator: was used for validation to ensure no JavaScript errors.
+JShint validator: used to ensure no JavaScript errors.
 ![JShint validator](assets/jshint.png)
 
 
