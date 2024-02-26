@@ -1,3 +1,4 @@
+let stripe;
 let elements;
 
 document
