@@ -4,7 +4,7 @@
 
 @import url(fonts.css);
 
-/* VARIABLE DEFINITIONS */
+/* Variable definitions */
 :root {
   --primary: #79aec8;
   --secondary: #417690;
@@ -104,7 +104,7 @@ body {
     background: var(--body-bg);
 }
 
-/* LINKS */
+/* Links */
 
 a:link, a:visited {
     color: var(--link-fg);
@@ -133,7 +133,7 @@ a.section:focus, a.section:hover {
     text-decoration: underline;
 }
 
-/* GLOBAL DEFAULTS */
+/* Global defaults */
 
 p, ol, ul, dl {
     margin: .2em 0 .8em 0;
@@ -259,7 +259,7 @@ hr {
     line-height: 1px;
 }
 
-/* TEXT STYLES & MODIFIERS */
+/* Text styles & Modifiers */
 
 .small {
     font-size: 11px;
@@ -303,7 +303,7 @@ p img, h1 img, h2 img, h3 img, h4 img, td img {
     display: none;
 }
 
-/* TABLES */
+/* Tables */
 
 table {
     border-collapse: collapse;
@@ -358,7 +358,7 @@ tr:nth-child(odd) + .row-form-errors .errorlist {
     background: var(--darkened-bg);
 }
 
-/* SORTABLE TABLES */
+/* Sortable tables */
 
 thead th {
     padding: 5px 10px;
@@ -470,7 +470,7 @@ table thead th.sorted .sortoptions a.descending:hover {
     background-position: 0 -70px;
 }
 
-/* FORM DEFAULTS */
+/* Form defaults */
 
 input, textarea, select, .form-row p, form .button {
     margin: 2px 0;
@@ -514,7 +514,7 @@ select[multiple] {
     min-height: 150px;
 }
 
-/* FORM BUTTONS */
+/* Form buttoms */
 
 .button, input[type=submit], input[type=button], .submit-row input, a.button {
     background: var(--button-bg);
@@ -560,7 +560,7 @@ input[type=button][disabled].default {
 }
 
 
-/* MODULES */
+/* Modules */
 
 .module {
     border: none;
@@ -606,7 +606,7 @@ input[type=button][disabled].default {
     border-collapse: collapse;
 }
 
-/* MESSAGES & ERRORS */
+/* Messages & Errors */
 
 ul.messagelist {
     padding: 0;
@@ -701,7 +701,7 @@ td ul.errorlist + input, td ul.errorlist + select, td ul.errorlist + textarea {
     padding: 5px 0 0 12px;
 }
 
-/* BREADCRUMBS */
+/* Breadcrums */
 
 div.breadcrumbs {
     background: var(--breadcrumbs-bg);
@@ -719,7 +719,7 @@ div.breadcrumbs a:focus, div.breadcrumbs a:hover {
     color: var(--breadcrumbs-fg);
 }
 
-/* ACTION ICONS */
+/* Action icons */
 
 .viewlink, .inlineviewlink {
     padding-left: 16px;
@@ -742,15 +742,15 @@ div.breadcrumbs a:focus, div.breadcrumbs a:hover {
 }
 
 a.deletelink:link, a.deletelink:visited {
-    color: #CC3434; /* XXX Probably unused? */
+    color: #CC3434;
 }
 
 a.deletelink:focus, a.deletelink:hover {
-    color: #993333; /* XXX Probably unused? */
+    color: #993333;
     text-decoration: none;
 }
 
-/* OBJECT TOOLS */
+/* Object tools */
 
 .object-tools {
     font-size: 10px;
@@ -806,7 +806,7 @@ a.deletelink:focus, a.deletelink:hover {
     background-image: url(../img/tooltag-add.svg);
 }
 
-/* OBJECT HISTORY */
+/* Object history */
 
 table#change-history {
     width: 100%;
@@ -816,7 +816,7 @@ table#change-history tbody th {
     width: 16em;
 }
 
-/* PAGE STRUCTURE */
+/* Page structure */
 
 #container {
     position: relative;
@@ -867,7 +867,7 @@ table#change-history tbody th {
     padding: 10px;
 }
 
-/* COLUMN TYPES */
+/* Column types */
 
 .colMS {
     margin-right: 300px;
@@ -891,7 +891,7 @@ table#change-history tbody th {
     width: auto;
 }
 
-/* HEADER */
+/* Header */
 
 #header {
     width: auto;
@@ -962,7 +962,7 @@ table#change-history tbody th {
     color: var(--primary);
 }
 
-/* SIDEBAR */
+/* Sidebar */
 
 #content-related {
     background: var(--darkened-bg);
@@ -1038,7 +1038,7 @@ table#change-history tbody th {
     background: var(--close-button-hover-bg);
 }
 
-/* POPUP */
+/* Popup */
 .popup #content {
     padding: 20px;
 }

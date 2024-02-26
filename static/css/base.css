@@ -37,7 +37,6 @@ body {
 
 .btn {
     cursor: pointer;    
-    
 }
 
 .btn-outline-black {
@@ -127,6 +126,7 @@ body {
     overflow-y: auto;
 }
 
+
 /* Wishlist */
 a {
     text-decoration: none;
@@ -140,19 +140,14 @@ a {
     align-items: center;
     clear: left;
     font: 14px Helvetica, Arial, sans-serif;
-
 }
-
 
 
 /* Media Queries */
 @media (min-width: 1200px) {
     .container {
       max-width: 75%;
-    }
-    
-   
-     
+    }         
 }
 
 @media screen and (max-width: 767px) {
@@ -180,5 +175,3 @@ a {
         display: none !important;
     }
 }
-
-

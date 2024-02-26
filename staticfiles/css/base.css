@@ -11,12 +11,6 @@ body {
     color:#D2691E;
 }
 
-/* Basic settings for all pages without specific background */
-/* .default-background { */
-    /* background: none;
-   
-} */
- 
 
 .card {
     display: flex;
