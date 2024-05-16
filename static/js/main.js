@@ -36,7 +36,7 @@ async function handleSubmit(e) {
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: "https://hot-cup-a72a7710ed7c.herokuapp.com/",
+      return_url: "https://hot-cup-a72a7710ed7c.herokuapp.com/successful",
     },
   });
 
