@@ -1,7 +1,19 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse
-from django.contrib import messages
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 
+from django.contrib import messages
+from django.conf import settings
+from django.views.decorators.http import require_POST
+from django.views.generic import View
+
+from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.models import UserProfile
+from .forms import OrderForm
+
+from bag.contexts import bag_contents
+
+import stripe
+import json
 
 
 def ViewShoppingBag(request):
@@ -29,6 +41,7 @@ def ViewShoppingBag(request):
     }
 
     return render(request, 'bag/shopping_bag.html', context)
+
 
 def checkout(request):
     return render(request, 'bag/checkout.html')
@@ -87,3 +100,94 @@ def remove_from_bag(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
+
+
+class CheckoutView(View):
+    """
+    View for handling the checkout process.
+    """
+
+    def get(self, request, *args, **kwargs):
+        """
+        Render the checkout page with an empty order form.
+        """
+        order_form = OrderForm()
+        return render(request, 'bag/checkout.html', {'order_form': order_form})
+
+    def post(self, request, *args, **kwargs):
+        """
+        Handle the submission of the checkout form.
+        """
+        bag = request.session.get('bag', {})
+        form_data = {
+            'full_name': request.POST['full_name'],
+            'email': request.POST['email'],
+            'phone_number': request.POST['phone_number'],
+            'country': request.POST['country'],
+            'postcode': request.POST['postcode'],
+            'town_or_city': request.POST['town_or_city'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'county': request.POST['county'],
+        }
+        order_form = OrderForm(form_data)
+        if order_form.is_valid():
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
+            for item_id, item_data in bag.items():
+                try:
+                    product = Product.objects.get(id=item_id)
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()
+                except Product.DoesNotExist:
+                    messages.error(request, (
+                        "One of the products in your bag wasn't found in our database. "
+                        "Please call us for assistance!")
+                    )
+                    order.delete()
+                    return redirect(reverse('view_bag'))
+
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success', args=[order.order_number]))
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
+        return redirect(reverse('view_bag'))
+
+
+class CheckoutSuccessView(View):
+    """
+    View for handling successful checkouts.
+    """
+
+    def get(self, request, order_number):
+        """
+        Render the checkout success page.
+        """
+        save_info = request.session.get('save_info')
+        order = get_object_or_404(Order, order_number=order_number)
+        messages.success(request, f'Order successfully processed! \
+            Your order number is {order_number}. A confirmation \
+            email will be sent to {order.email}.')
+
+        if 'bag' in request.session:
+            del request.session['bag']
+
+        template = 'bag/checkout_success.html'
+        context = {
+            'order': order,
+        }
+
+        return render(request, template, context)
+
+
+
+
