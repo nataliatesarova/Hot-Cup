@@ -1,0 +1,11 @@
+Dear {{ order.full_name }},
+
+Thank you for your purchase!
+
+Order Number: {{ order.order_number }}
+Order Total: {{ order.grand_total }}
+
+You will receive another email once your items have been shipped.
+
+Best regards,
+The Hot-Cup Team
