@@ -39,8 +39,6 @@ if development:
 else:
     ALLOWED_HOSTS = ['hot-cup-a72a7710ed7c.herokuapp.com', '*']
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -215,6 +213,7 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_PUBLISHABLE_KEY =os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY =os.getenv('STRIPE_SECRET_KEY', '')
 
+# Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
