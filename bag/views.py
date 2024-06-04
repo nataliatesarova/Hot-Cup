@@ -103,21 +103,18 @@ def remove_from_bag(request, item_id):
 
 
 class CheckoutView(View):
-    """
-    View for handling the checkout process.
-    """
-
     def get(self, request, *args, **kwargs):
-        """
-        Render the checkout page with an empty order form.
-        """
         order_form = OrderForm()
-        return render(request, 'bag/checkout.html', {'order_form': order_form})
+        temp_order = Order()
+        temp_order.save()
+        order_number = temp_order.order_number
+        temp_order.delete()
+        return render(request, 'bag/checkout.html', {
+            'order_form': order_form,
+            'order_number': order_number
+        })
 
     def post(self, request, *args, **kwargs):
-        """
-        Handle the submission of the checkout form.
-        """
         bag = request.session.get('bag', {})
         form_data = {
             'full_name': request.POST.get('full_name'),
@@ -144,10 +141,9 @@ class CheckoutView(View):
             order.original_bag = json.dumps(bag)
             order.save()
 
-            # Create Stripe PaymentIntent with metadata
             stripe.api_key = settings.STRIPE_SECRET_KEY
             intent = stripe.PaymentIntent.create(
-                amount=int(order.grand_total * 100),  # Amount in cents
+                amount=int(order.grand_total * 100),
                 currency=settings.STRIPE_CURRENCY,
                 metadata={
                     'order_number': order.order_number,
@@ -156,7 +152,6 @@ class CheckoutView(View):
                 },
             )
 
-            # Save the PaymentIntent id
             order.stripe_pid = intent.id
             order.save()
 
@@ -171,18 +166,14 @@ class CheckoutView(View):
                         )
                         order_line_item.save()
                 except Product.DoesNotExist:
-                    messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
-                    )
+                    messages.error(request, "One of the products in your bag wasn't found in our database. Please call us for assistance!")
                     order.delete()
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            messages.error(request, 'There was an error with your form. Please double check your information.')
         return redirect(reverse('view_bag'))
 
 
