@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
       .then((result) => { return result.json(); })
       .then((data) => {
         const clientSecret = data.clientSecret;
+        document.querySelector("#client-secret").value = clientSecret;  // Set the client secret in a hidden input field
         const appearance = {theme: 'stripe'};
         elements = stripe.elements({ appearance, clientSecret });
         const paymentElementOptions = {
@@ -36,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
     setLoading(true);
 
     // Fetch the order number from the server or session
-    // Assuming you have a hidden input field with id 'order-number' to hold the order number
     const orderNumber = document.querySelector("#order-number").value;
 
     const { error } = await stripe.confirmPayment({
