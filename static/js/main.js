@@ -2,41 +2,36 @@ document.addEventListener("DOMContentLoaded", function() {
   let stripe;
   let elements;
 
-  document
-    .querySelector("#payment-form")
-    .addEventListener("submit", handleSubmit);
-
   fetch("/products/config/")
-    .then((result) => { return result.json(); })
+    .then((result) => result.json())
     .then((data) => {
       stripe = Stripe(data.publicKey);
-      fetch("/products/create-checkout-session/")
-      .then((result) => { return result.json(); })
+      initializeStripeElements(stripe);
+    })
+    .catch((error) => console.error("Failed to fetch Stripe configuration:", error));
+
+  function initializeStripeElements(stripe) {
+    fetch("/products/create-checkout-session/")
+      .then((result) => result.json())
       .then((data) => {
         const clientSecret = data.clientSecret;
-        document.querySelector("#client-secret").value = clientSecret;  // Set the client secret in a hidden input field
-        const appearance = {theme: 'stripe'};
+        document.querySelector("#client-secret").value = clientSecret;
+        const appearance = { theme: 'stripe' };
         elements = stripe.elements({ appearance, clientSecret });
+
         const paymentElementOptions = {
           layout: "tabs",
         };
-        try {
-          const paymentElement = elements.create("payment", paymentElementOptions);
-          paymentElement.mount("#payment-element");
-        } catch (error) {
-          console.error("Error mounting payment elements:", error);
-          showMessage("Failed to initialize payment interface. Please refresh the page and try again.");
-        }
+
+        const paymentElement = elements.create("payment", paymentElementOptions);
+        paymentElement.mount("#payment-element");
       })
-      .catch(error => console.error("Failed to create checkout session:", error));
-    })
-    .catch(error => console.error("Failed to fetch Stripe configuration:", error));
+      .catch((error) => console.error("Failed to create checkout session:", error));
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-
-    // Fetch the order number from the server or session
     const orderNumber = document.querySelector("#order-number").value;
 
     const { error } = await stripe.confirmPayment({
@@ -54,13 +49,15 @@ document.addEventListener("DOMContentLoaded", function() {
     setLoading(false);
   }
 
+  document.querySelector("#payment-form").addEventListener("submit", handleSubmit);
+
   function showMessage(messageText) {
     const messageContainer = document.querySelector("#payment-message");
     messageContainer.classList.remove("hidden");
     messageContainer.textContent = messageText;
-    setTimeout(function () {
+    setTimeout(() => {
       messageContainer.classList.add("hidden");
-      messageText.textContent = "";
+      messageContainer.textContent = "";
     }, 4000);
   }
 
