@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-development = os.environ.get('DEVELOPMENT', False)
+development = os.environ.get('DEVELOPMENT', True)
 DEBUG = development
 
 if development:
@@ -35,9 +35,10 @@ if development:
                      '127.0.0.1:8000',
                      '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io',
                      '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu108.gitpod.io',
+                     '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu114.gitpod.io',
                      'hot-cup-a72a7710ed7c.herokuapp.com']
 else:
-    ALLOWED_HOSTS = ['hot-cup-a72a7710ed7c.herokuapp.com', '*']
+    ALLOWED_HOSTS = ['hot-cup-a72a7710ed7c.herokuapp.com', '*', ]
 
 # Application definition
 
@@ -210,8 +211,8 @@ FREE_DELIVERY_THRESHOLD = 30
 STANDARD_DELIVERY_PERCENTAGE = 10
 
 # Stripe
-STRIPE_PUBLISHABLE_KEY =os.environ.get('STRIPE_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY =os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
 
 # Email settings
