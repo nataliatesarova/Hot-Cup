@@ -214,6 +214,9 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
+print("publishable key== ", STRIPE_PUBLISHABLE_KEY)
+print("secret key== ", STRIPE_SECRET_KEY)
+print("wh secret key== ", STRIPE_WH_SECRET)
 
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 
 from django.contrib import messages
 from django.conf import settings
+from django.db import transaction
 from django.views.decorators.http import require_POST
 from django.views.generic import View
 
@@ -103,19 +104,46 @@ def remove_from_bag(request, item_id):
 
 
 class CheckoutView(View):
+    """
+    View for handling the checkout process.
+
+    Methods:
+    - get: Renders the checkout page with an empty order form.
+    - post: Handles the submission of the checkout form, creates an order,
+            and processes the Stripe payment.
+    """
     def get(self, request, *args, **kwargs):
+        """
+        Render the checkout page with an empty order form.
+
+        Args:
+        - request: The HTTP request object.
+
+        Returns:
+        - HTTP response rendering the checkout page.
+        """
         order_form = OrderForm()
         temp_order = Order()
-        temp_order.save()
+        temp_order.save()  # Save temporary order to generate order number
         order_number = temp_order.order_number
-        temp_order.delete()
+        temp_order.delete()  # Delete temporary order after getting the order number
         return render(request, 'bag/checkout.html', {
             'order_form': order_form,
-            'order_number': order_number
+            'order_number': order_number  # Pass order number to template
         })
 
     def post(self, request, *args, **kwargs):
-        bag = request.session.get('bag', {})
+        """
+        Handle the submission of the checkout form.
+
+        Args:
+        - request: The HTTP request object.
+
+        Returns:
+        - HTTP response redirecting to the checkout success page if successful,
+          otherwise redirecting to the shopping bag page.
+        """
+        bag = request.session.get('bag', {})  # Get the current bag from the session
         form_data = {
             'full_name': request.POST.get('full_name'),
             'email': request.POST.get('email'),
@@ -129,79 +157,83 @@ class CheckoutView(View):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save(commit=False)
-            client_secret = request.POST.get('client_secret')
-            if client_secret:
-                pid = client_secret.split('_secret')[0]
-                order.stripe_pid = pid
-            else:
-                messages.error(request, 'Missing client secret. Please try again.')
-                return redirect(reverse('view_bag'))
-
-            order.original_bag = json.dumps(bag)
-            order.save()
-
-            stripe.api_key = settings.STRIPE_SECRET_KEY
-            intent = stripe.PaymentIntent.create(
-                amount=int(order.grand_total * 100),
-                currency=settings.STRIPE_CURRENCY,
-                metadata={
-                    'order_number': order.order_number,
-                    'bag': json.dumps(bag),
-                    'username': request.user.username if request.user.is_authenticated else 'AnonymousUser',
-                },
-            )
-
-            order.stripe_pid = intent.id
-            order.save()
-
-            for item_id, item_data in bag.items():
-                try:
-                    product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=item_data,
-                        )
-                        order_line_item.save()
-                except Product.DoesNotExist:
-                    messages.error(request, "One of the products in your bag wasn't found in our database. Please call us for assistance!")
-                    order.delete()
+            with transaction.atomic():  # Ensure all operations within this block are atomic
+                order = order_form.save(commit=False)  # Create order object but don't save to database yet
+                client_secret = request.POST.get('client_secret')
+                if client_secret:
+                    pid = client_secret.split('_secret')[0]
+                    order.stripe_pid = pid
+                else:
+                    messages.error(request, 'Missing client secret. Please try again.')
                     return redirect(reverse('view_bag'))
 
-            request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+                order.original_bag = json.dumps(bag)
+                order.save()  # Save the order to the database
+
+                stripe.api_key = settings.STRIPE_SECRET_KEY
+                intent = stripe.PaymentIntent.create(
+                    amount=int(order.grand_total * 100),  # Amount in cents
+                    currency=settings.STRIPE_CURRENCY,
+                    metadata={
+                        'order_number': order.order_number,
+                        'bag': json.dumps(bag),
+                        'username': request.user.username if request.user.is_authenticated else 'AnonymousUser',
+                    },
+                )
+
+                order.stripe_pid = intent.id
+                order.save()  # Save the updated order with stripe_pid
+
+                for item_id, item_data in bag.items():
+                    try:
+                        product = Product.objects.get(id=item_id)
+                        if isinstance(item_data, int):
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                product=product,
+                                quantity=item_data,
+                            )
+                            order_line_item.save()  # Save each order line item
+                    except Product.DoesNotExist:
+                        messages.error(request, "One of the products in your bag wasn't found in our database. Please call us for assistance!")
+                        order.delete()  # Delete the order if product not found
+                        return redirect(reverse('view_bag'))
+
+                order.save()  # Ensure the order is saved after adding line items
+                request.session['save_info'] = 'save-info' in request.POST
+                return redirect(reverse('checkout_success', args=[order.order_number]))  # Redirect to success page with order number
         else:
             messages.error(request, 'There was an error with your form. Please double check your information.')
         return redirect(reverse('view_bag'))
 
-
 class CheckoutSuccessView(View):
     """
     View for handling successful checkouts.
-    """
 
+    Methods:
+    - get: Renders the checkout success page with the order details.
+    """
     def get(self, request, order_number):
         """
         Render the checkout success page.
+
+        Args:
+        - request: The HTTP request object.
+        - order_number: The order number of the successful order.
+
+        Returns:
+        - HTTP response rendering the checkout success page.
         """
         save_info = request.session.get('save_info')
-        order = get_object_or_404(Order, order_number=order_number)
-        messages.success(request, f'Order successfully processed! \
-            Your order number is {order_number}. A confirmation \
-            email will be sent to {order.email}.')
+        order = get_object_or_404(Order, order_number=order_number)  # Retrieve the order by order number
+        messages.success(request, f'Order successfully processed! Your order number is {order_number}. A confirmation email will be sent to {order.email}.')
 
         if 'bag' in request.session:
-            del request.session['bag']
+            del request.session['bag']  # Clear the bag from the session
 
         template = 'bag/checkout_success.html'
         context = {
             'order': order,
         }
 
-        return render(request, template, context)
-
-
-
-
+        return render(request, template, context)  # Render the success page with the order context
