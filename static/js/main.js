@@ -32,21 +32,45 @@ document.addEventListener("DOMContentLoaded", function() {
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    const orderNumber = document.querySelector("#order-number").value;
 
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: `https://hot-cup-a72a7710ed7c.herokuapp.com/bag/checkout_success/${orderNumber}/`,
+    // Cache checkout data
+    const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+    const clientSecret = document.querySelector("#client-secret").value;
+    const saveInfo = Boolean(document.querySelector("#id-save-info").checked);
+    const postData = {
+      'csrfmiddlewaretoken': csrfToken,
+      'client_secret': clientSecret,
+      'save_info': saveInfo,
+    };
+
+    fetch('/bag/cache_checkout_data/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken,
       },
-    });
+      body: JSON.stringify(postData),
+    })
+    .then(response => response.json())
+    .then(async () => {
+      const { error } = await stripe.confirmPayment({
+        elements,
+        confirmParams: {
+          return_url: `https://hot-cup-a72a7710ed7c.herokuapp.com/bag/checkout_success/`,
+        },
+      });
 
-    if (error) {
-      showMessage(error.message);
-    } else {
-      showMessage("An unexpected error occurred.");
-    }
-    setLoading(false);
+      if (error) {
+        showMessage(error.message);
+      } else {
+        showMessage("An unexpected error occurred.");
+      }
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.error("Failed to cache checkout data:", error);
+      setLoading(false);
+    });
   }
 
   document.querySelector("#payment-form").addEventListener("submit", handleSubmit);
