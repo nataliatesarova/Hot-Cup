@@ -4,6 +4,7 @@ from django.conf import settings
 from django.db import transaction
 from django.db.transaction import atomic
 from django.views.decorators.http import require_POST
+from django.http import JsonResponse
 from django.views.generic import View
 import logging
 
@@ -247,3 +248,17 @@ class CheckoutSuccessView(View):
             logger.error(f"Error retrieving order {order_number}: {e}")
             messages.error(request, 'There was an error processing your request. Please try again.')
             return redirect(reverse('view_bag'))
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'bag': json.dumps(request.session.get('bag', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return JsonResponse({'result': 'success'})
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
