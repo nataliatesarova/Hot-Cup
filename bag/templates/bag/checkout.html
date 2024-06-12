@@ -7,8 +7,8 @@
     <form id="payment-form" method="POST">
       {% csrf_token %}
       {{ order_form.as_p }}
-      <input type="hidden" id="order-number" name="order_number" value="{{ order_number }}">
-      <input type="hidden" id="client-secret" name="client_secret">
+      <input type="hidden" id="client-secret" name="client_secret"> 
+      <input type="hidden" id="id-save-info" name="save_info">
       <div id="payment-element">
         <!-- Elements will create form elements here -->
       </div>
