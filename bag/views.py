@@ -1,28 +1,26 @@
+import logging
+import json
+
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
-from django.db import transaction
 from django.db.transaction import atomic
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 from django.views.generic import View
-import logging
 
-from .models import Order, OrderLineItem
 from products.models import Product
-from profiles.models import UserProfile
+from .models import Order, OrderLineItem
 from .forms import OrderForm
-from bag.contexts import bag_contents
 
 import stripe
-import json
 
 # Set up logging
 logger = logging.getLogger(__name__)
 
 
-def ViewShoppingBag(request):
-    """ A view that renders the shopping bag contents page, including subtotal for each item. """
+def view_shopping_bag(request):
+    """Render the shopping bag contents page, including subtotal for each item."""
     bag = request.session.get('bag', {})
     bag_items = []
     total = 0
@@ -49,12 +47,12 @@ def ViewShoppingBag(request):
 
 
 def checkout(request):
+    """Render the checkout page."""
     return render(request, 'bag/checkout.html')
 
 
 def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
-    print(item_id)
+    """Add a quantity of the specified product to the shopping bag."""
     product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -72,25 +70,23 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
-
+    """Adjust the quantity of the specified product to the specified amount."""
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
     if quantity > 0:
         bag[item_id] = quantity
-        messages.success(request, f'Successfully Updated your bag')
+        messages.success(request, 'Successfully Updated your bag')
     else:
         bag.pop(item_id)
-        messages.success(request, f'Successfully Updated your bag')
+        messages.success(request, 'Successfully Updated your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
 
 def remove_from_bag(request, item_id):
-    """Remove the item from the shopping bag"""
-
+    """Remove the item from the shopping bag."""
     try:
         product = Product.objects.get(pk=item_id)
         bag = request.session.get('bag', {})
@@ -100,7 +96,6 @@ def remove_from_bag(request, item_id):
 
         request.session['bag'] = bag
         return redirect(reverse('view_bag'))
-
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         logger.error(f'Error removing item {item_id}: {e}')
@@ -110,39 +105,15 @@ def remove_from_bag(request, item_id):
 class CheckoutView(View):
     """
     View for handling the checkout process.
-
-    Methods:
-    - get: Renders the checkout page with an empty order form.
-    - post: Handles the submission of the checkout form, creates an order,
-            and processes the Stripe payment.
     """
     def get(self, request, *args, **kwargs):
-        """
-        Render the checkout page with an empty order form.
-
-        Args:
-        - request: The HTTP request object.
-
-        Returns:
-        - HTTP response rendering the checkout page.
-        """
+        """Render the checkout page with an empty order form."""
         order_form = OrderForm()
-        return render(request, 'bag/checkout.html', {
-            'order_form': order_form,
-        })
+        return render(request, 'bag/checkout.html', {'order_form': order_form})
 
     def post(self, request, *args, **kwargs):
-        """
-        Handle the submission of the checkout form.
-
-        Args:
-        - request: The HTTP request object.
-
-        Returns:
-        - HTTP response redirecting to the checkout success page if successful,
-          otherwise redirecting to the shopping bag page.
-        """
-        bag = request.session.get('bag', {})  # Get the current bag from the session
+        """Handle the submission of the checkout form."""
+        bag = request.session.get('bag', {})
         form_data = {
             'full_name': request.POST.get('full_name'),
             'email': request.POST.get('email'),
@@ -157,8 +128,8 @@ class CheckoutView(View):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             try:
-                with atomic():  # Ensure all operations within this block are atomic
-                    order = order_form.save(commit=False)  # Create order object but don't save to database yet
+                with atomic():
+                    order = order_form.save(commit=False)
                     client_secret = request.POST.get('client_secret')
                     if client_secret:
                         pid = client_secret.split('_secret')[0]
@@ -168,11 +139,11 @@ class CheckoutView(View):
                         return redirect(reverse('view_bag'))
 
                     order.original_bag = json.dumps(bag)
-                    order.save()  # Save the order to the database
+                    order.save()
 
                     stripe.api_key = settings.STRIPE_SECRET_KEY
                     intent = stripe.PaymentIntent.create(
-                        amount=int(order.grand_total * 100),  # Amount in cents
+                        amount=int(order.grand_total * 100),
                         currency=settings.STRIPE_CURRENCY,
                         metadata={
                             'order_number': order.order_number,
@@ -182,7 +153,7 @@ class CheckoutView(View):
                     )
 
                     order.stripe_pid = intent.id
-                    order.save()  # Save the updated order with stripe_pid
+                    order.save()
 
                     for item_id, item_data in bag.items():
                         try:
@@ -193,16 +164,16 @@ class CheckoutView(View):
                                     product=product,
                                     quantity=item_data,
                                 )
-                                order_line_item.save()  # Save each order line item
+                                order_line_item.save()
                         except Product.DoesNotExist:
                             messages.error(request, "One of the products in your bag wasn't found in our database. Please call us for assistance!")
                             logger.error(f"Product with id {item_id} not found. Deleting order {order.order_number}.")
-                            order.delete()  # Delete the order if product not found
+                            order.delete()
                             return redirect(reverse('view_bag'))
 
-                    order.save()  # Ensure the order is saved after adding line items
+                    order.save()
                     request.session['save_info'] = 'save-info' in request.POST
-                    return redirect(reverse('checkout_success', args=[order.order_number]))  # Redirect to success page with order number
+                    return redirect(reverse('checkout_success', args=[order.order_number]))
             except Exception as e:
                 logger.error(f"Error processing order: {e}")
                 messages.error(request, 'There was an error processing your order. Please try again.')
@@ -216,35 +187,20 @@ class CheckoutView(View):
 class CheckoutSuccessView(View):
     """
     View for handling successful checkouts.
-
-    Methods:
-    - get: Renders the checkout success page with the order details.
     """
     def get(self, request, order_number):
-        """
-        Render the checkout success page.
-
-        Args:
-        - request: The HTTP request object.
-        - order_number: The order number of the successful order.
-
-        Returns:
-        - HTTP response rendering the checkout success page.
-        """
+        """Render the checkout success page."""
         save_info = request.session.get('save_info')
         try:
-            order = get_object_or_404(Order, order_number=order_number)  # Retrieve the order by order number
+            order = get_object_or_404(Order, order_number=order_number)
             messages.success(request, f'Order successfully processed! Your order number is {order_number}. A confirmation email will be sent to {order.email}.')
 
             if 'bag' in request.session:
-                del request.session['bag']  # Clear the bag from the session
+                del request.session['bag']
 
             template = 'bag/checkout_success.html'
-            context = {
-                'order': order,
-            }
-
-            return render(request, template, context)  # Render the success page with the order context
+            context = {'order': order}
+            return render(request, template, context)
         except Exception as e:
             logger.error(f"Error retrieving order {order_number}: {e}")
             messages.error(request, 'There was an error processing your request. Please try again.')
@@ -253,6 +209,7 @@ class CheckoutSuccessView(View):
 
 @require_POST
 def cache_checkout_data(request):
+    """Cache checkout data before confirming payment with Stripe."""
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
