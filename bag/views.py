@@ -20,6 +20,7 @@ import json
 # Set up logging
 logger = logging.getLogger(__name__)
 
+
 def ViewShoppingBag(request):
     """ A view that renders the shopping bag contents page, including subtotal for each item. """
     bag = request.session.get('bag', {})
@@ -248,6 +249,7 @@ class CheckoutSuccessView(View):
             logger.error(f"Error retrieving order {order_number}: {e}")
             messages.error(request, 'There was an error processing your request. Please try again.')
             return redirect(reverse('view_bag'))
+
 
 @require_POST
 def cache_checkout_data(request):
