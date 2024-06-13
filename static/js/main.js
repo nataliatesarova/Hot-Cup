@@ -51,7 +51,12 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       body: JSON.stringify(postData),
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to cache checkout data');
+      }
+      return response.json();
+    })
     .then(async () => {
       const { error } = await stripe.confirmPayment({
         elements,
