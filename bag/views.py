@@ -208,16 +208,19 @@ class CheckoutSuccessView(View):
 
 
 @require_POST
+@csrf_exempt
 def cache_checkout_data(request):
     """Cache checkout data before confirming payment with Stripe."""
     try:
-        pid = request.POST.get('client_secret').split('_secret')[0]
+        request_data = json.loads(request.body)
+        pid = request_data.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
-            'save_info': request.POST.get('save_info'),
-            'username': request.user,
+            'save_info': request_data.get('save_info'),
+            'username': request.user.username,
         })
         return JsonResponse({'result': 'success'})
     except Exception as e:
+        logger.error(f'Error caching checkout data: {e}')
         return JsonResponse({'error': str(e)}, status=400)
