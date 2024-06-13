@@ -14,6 +14,7 @@ from .models import Order, OrderLineItem
 
 logger = logging.getLogger(__name__)
 
+
 class StripeWHHandler:
     """
     Handle Stripe webhooks.

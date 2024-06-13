@@ -132,7 +132,7 @@
         </li>
         <!-- Shopping Bag Link -->
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'view_bag' %}" class="nav-link {% if items_in_cart %}text-info {%else%} text-light{% endif %}" aria-label="Review your cart and order before making a purchase">
+          <a class="nav-link" href="{% url 'view_bag' %}" class="nav-link {% if bag_items %}text-info {%else%} text-light{% endif %}" aria-label="Review your cart and order before making a purchase">
             <i class="fa-solid fa-bag-shopping"></i>&nbsp;<span class="hider-on-md">Shopping Bag {% if grand_total %}
                     €{{ grand_total|floatformat:2 }}
                 {% else %}
