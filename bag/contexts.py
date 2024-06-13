@@ -1,16 +1,25 @@
 from decimal import Decimal
+import logging
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
+
+
+logger = logging.getLogger(__name__)
+
 
 def bag_contents(request):
     '''
     Handles the shopping bag contents
     '''
+    logger.debug('Executing bag_contents context processor')
+
     bag_items = []
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+
+    logger.debug(f'Current bag session: {bag}')
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
@@ -30,7 +39,7 @@ def bag_contents(request):
         free_delivery_delta = 0
 
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,
@@ -41,4 +50,5 @@ def bag_contents(request):
         'grand_total': grand_total,
     }
 
+    logger.debug(f'Context returned by bag_contents: {context}')
     return context
