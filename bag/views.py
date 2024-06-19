@@ -8,6 +8,7 @@ from django.db.transaction import atomic
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 from django.views.generic import View
+from django.views.decorators.csrf import csrf_exempt
 
 from products.models import Product
 from .models import Order, OrderLineItem

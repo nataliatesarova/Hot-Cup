@@ -36,6 +36,7 @@ if development:
                      '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu107.gitpod.io',
                      '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu108.gitpod.io',
                      '8000-nataliatesarova-hotcup-4hsuztu0d84.ws-eu114.gitpod.io',
+                     '8000-nataliatesarova-hotcup-at4kqcz9nly.ws.codeinstitute-ide.net',
                      'hot-cup-a72a7710ed7c.herokuapp.com']
 else:
     ALLOWED_HOSTS = ['hot-cup-a72a7710ed7c.herokuapp.com', '*', ]
@@ -214,9 +215,9 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
-print("publishable key== ", STRIPE_PUBLISHABLE_KEY)
-print("secret key== ", STRIPE_SECRET_KEY)
-print("wh secret key== ", STRIPE_WH_SECRET)
+# print("publishable key== ", STRIPE_PUBLISHABLE_KEY)
+# print("secret key== ", STRIPE_SECRET_KEY)
+# print("wh secret key== ", STRIPE_WH_SECRET)
 
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -226,27 +227,3 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-
-# Logging settings
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-        },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file', 'console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
